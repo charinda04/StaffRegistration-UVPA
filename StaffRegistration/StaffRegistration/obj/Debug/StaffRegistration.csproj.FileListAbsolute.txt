@@ -24,3 +24,17 @@ G:\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.StaffRegistra
 G:\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Add.resources
 G:\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Properties.Resources.resources
 G:\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.csproj.GenerateResource.Cache
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\StaffRegistration.exe.config
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.exe
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.pdb
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.csprojResolveAssemblyReference.cache
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Leaves.resources
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Options.resources
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Reports.resources
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.StaffRegistration.resources
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Add.resources
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Properties.Resources.resources
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.csproj.GenerateResource.Cache
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\StaffRegistration.exe
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\StaffRegistration.pdb
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\mysql.data.dll

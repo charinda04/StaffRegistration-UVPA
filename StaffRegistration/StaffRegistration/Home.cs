@@ -12,10 +12,18 @@ namespace StaffRegistration
 {
     public partial class StaffRegistration : Form
     {
+        SearchStaff staff = new SearchStaff();
+
+        Connection cc = new Connection();
+
+
         public StaffRegistration()
         {
             InitializeComponent();
+
         }
+
+
 
         private void addStaffMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -46,6 +54,11 @@ namespace StaffRegistration
         {
             Add addStaff = new Add();
             addStaff.ShowDialog();
+        }
+
+        private void StaffRegistration_Load(object sender, EventArgs e)
+        {
+            staff.fillSearchTable(tblSearch);
         }
     }
 }

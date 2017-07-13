@@ -63,8 +63,6 @@
             this.txtTeleOffice = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtMailZipCode = new System.Windows.Forms.TextBox();
             this.label90 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
@@ -73,21 +71,19 @@
             this.txtAddress1Mail = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chkBxSame = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCityHome = new System.Windows.Forms.TextBox();
+            this.txtHomeZipCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAddress1Home = new System.Windows.Forms.TextBox();
             this.panelPersonalD1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNextPanel2 = new System.Windows.Forms.Button();
             this.bttnCancel = new System.Windows.Forms.Button();
             this.panelPersonalD2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnPreviousPannel1 = new System.Windows.Forms.Button();
+            this.btnNextPanel3 = new System.Windows.Forms.Button();
+            this.btnCancelPanel2 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtServiceNo = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
@@ -131,9 +127,9 @@
             this.label40 = new System.Windows.Forms.Label();
             this.btnAddMarriageCertificate = new System.Windows.Forms.Button();
             this.panelEduQual = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnPreviousPanel2 = new System.Windows.Forms.Button();
+            this.btnNextPanel4 = new System.Windows.Forms.Button();
+            this.btnCancelPanel3 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnRemoveEducation = new System.Windows.Forms.Button();
             this.txtGrade = new System.Windows.Forms.TextBox();
@@ -164,8 +160,8 @@
             this.txtServicePosition = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panelOther = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnPreviousPanel3 = new System.Windows.Forms.Button();
+            this.btnCancelPanel4 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dateOtherPosistionTo = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -180,18 +176,23 @@
             this.txtOtherPosition = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmbBxLeaveType = new System.Windows.Forms.ComboBox();
+            this.dateLeaveTo = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tblLeave = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btnRemoveLeave = new System.Windows.Forms.Button();
+            this.btnAddLeave = new System.Windows.Forms.Button();
+            this.dateLeaveFrom = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.openFileDialogPersonalPic = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogMarriageCertificate = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -213,7 +214,7 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOtherPositions)).BeginInit();
             this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLeave)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -378,6 +379,7 @@
             this.btnPersonalPic.TabIndex = 65;
             this.btnPersonalPic.Text = "Select Image";
             this.btnPersonalPic.UseVisualStyleBackColor = true;
+            this.btnPersonalPic.Click += new System.EventHandler(this.btnPersonalPic_Click);
             // 
             // label23
             // 
@@ -543,8 +545,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.txtMailZipCode);
             this.groupBox2.Controls.Add(this.label90);
             this.groupBox2.Controls.Add(this.label92);
@@ -558,25 +558,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mailing Address";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Address 2";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(137, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 61;
-            // 
             // txtMailZipCode
             // 
-            this.txtMailZipCode.Location = new System.Drawing.Point(137, 107);
+            this.txtMailZipCode.Location = new System.Drawing.Point(138, 110);
             this.txtMailZipCode.Name = "txtMailZipCode";
             this.txtMailZipCode.Size = new System.Drawing.Size(109, 20);
             this.txtMailZipCode.TabIndex = 60;
@@ -584,7 +568,7 @@
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(28, 110);
+            this.label90.Location = new System.Drawing.Point(29, 113);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(50, 13);
             this.label90.TabIndex = 59;
@@ -593,7 +577,7 @@
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(28, 84);
+            this.label92.Location = new System.Drawing.Point(29, 85);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(24, 13);
             this.label92.TabIndex = 55;
@@ -602,22 +586,22 @@
             // label94
             // 
             this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(28, 32);
+            this.label94.Location = new System.Drawing.Point(29, 58);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(54, 13);
+            this.label94.Size = new System.Drawing.Size(45, 13);
             this.label94.TabIndex = 57;
-            this.label94.Text = "Address 1";
+            this.label94.Text = "Address";
             // 
             // txtCityMail
             // 
-            this.txtCityMail.Location = new System.Drawing.Point(137, 55);
+            this.txtCityMail.Location = new System.Drawing.Point(138, 81);
             this.txtCityMail.Name = "txtCityMail";
             this.txtCityMail.Size = new System.Drawing.Size(266, 20);
             this.txtCityMail.TabIndex = 56;
             // 
             // txtAddress1Mail
             // 
-            this.txtAddress1Mail.Location = new System.Drawing.Point(137, 29);
+            this.txtAddress1Mail.Location = new System.Drawing.Point(138, 55);
             this.txtAddress1Mail.Name = "txtAddress1Mail";
             this.txtAddress1Mail.Size = new System.Drawing.Size(265, 20);
             this.txtAddress1Mail.TabIndex = 58;
@@ -625,14 +609,12 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.chkBxSame);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.txtCityHome);
+            this.groupBox5.Controls.Add(this.txtHomeZipCode);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.textBox5);
+            this.groupBox5.Controls.Add(this.txtAddress1Home);
             this.groupBox5.Location = new System.Drawing.Point(540, 275);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(518, 202);
@@ -649,34 +631,26 @@
             this.chkBxSame.TabIndex = 63;
             this.chkBxSame.Text = "Same as the Mailing address";
             this.chkBxSame.UseVisualStyleBackColor = true;
+            this.chkBxSame.CheckedChanged += new System.EventHandler(this.chkBxSame_CheckedChanged);
             // 
-            // label2
+            // txtCityHome
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "Address 2";
+            this.txtCityHome.Location = new System.Drawing.Point(141, 90);
+            this.txtCityHome.Name = "txtCityHome";
+            this.txtCityHome.Size = new System.Drawing.Size(266, 20);
+            this.txtCityHome.TabIndex = 61;
             // 
-            // textBox2
+            // txtHomeZipCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(143, 111);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(266, 20);
-            this.textBox2.TabIndex = 61;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(143, 137);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(109, 20);
-            this.textBox3.TabIndex = 60;
+            this.txtHomeZipCode.Location = new System.Drawing.Point(141, 116);
+            this.txtHomeZipCode.Name = "txtHomeZipCode";
+            this.txtHomeZipCode.Size = new System.Drawing.Size(109, 20);
+            this.txtHomeZipCode.TabIndex = 60;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 140);
+            this.label3.Location = new System.Drawing.Point(32, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 59;
@@ -685,7 +659,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 114);
+            this.label4.Location = new System.Drawing.Point(32, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 13);
             this.label4.TabIndex = 55;
@@ -700,23 +674,16 @@
             this.label5.TabIndex = 57;
             this.label5.Text = "Address 1";
             // 
-            // textBox4
+            // txtAddress1Home
             // 
-            this.textBox4.Location = new System.Drawing.Point(143, 85);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(266, 20);
-            this.textBox4.TabIndex = 56;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(143, 59);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(265, 20);
-            this.textBox5.TabIndex = 58;
+            this.txtAddress1Home.Location = new System.Drawing.Point(143, 59);
+            this.txtAddress1Home.Name = "txtAddress1Home";
+            this.txtAddress1Home.Size = new System.Drawing.Size(265, 20);
+            this.txtAddress1Home.TabIndex = 58;
             // 
             // panelPersonalD1
             // 
-            this.panelPersonalD1.Controls.Add(this.button1);
+            this.panelPersonalD1.Controls.Add(this.btnNextPanel2);
             this.panelPersonalD1.Controls.Add(this.bttnCancel);
             this.panelPersonalD1.Controls.Add(this.groupBox1);
             this.panelPersonalD1.Controls.Add(this.groupBox2);
@@ -727,16 +694,17 @@
             this.panelPersonalD1.Size = new System.Drawing.Size(1070, 526);
             this.panelPersonalD1.TabIndex = 77;
             // 
-            // button1
+            // btnNextPanel2
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(844, 489);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 23);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "Next";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNextPanel2.Image = ((System.Drawing.Image)(resources.GetObject("btnNextPanel2.Image")));
+            this.btnNextPanel2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNextPanel2.Location = new System.Drawing.Point(844, 489);
+            this.btnNextPanel2.Name = "btnNextPanel2";
+            this.btnNextPanel2.Size = new System.Drawing.Size(105, 23);
+            this.btnNextPanel2.TabIndex = 65;
+            this.btnNextPanel2.Text = "Next";
+            this.btnNextPanel2.UseVisualStyleBackColor = true;
+            this.btnNextPanel2.Click += new System.EventHandler(this.btnNextPanel2_Click);
             // 
             // bttnCancel
             // 
@@ -746,12 +714,13 @@
             this.bttnCancel.TabIndex = 64;
             this.bttnCancel.Text = "Cancel";
             this.bttnCancel.UseVisualStyleBackColor = true;
+            this.bttnCancel.Click += new System.EventHandler(this.bttnCancel_Click);
             // 
             // panelPersonalD2
             // 
-            this.panelPersonalD2.Controls.Add(this.button3);
-            this.panelPersonalD2.Controls.Add(this.button4);
-            this.panelPersonalD2.Controls.Add(this.button5);
+            this.panelPersonalD2.Controls.Add(this.btnPreviousPannel1);
+            this.panelPersonalD2.Controls.Add(this.btnNextPanel3);
+            this.panelPersonalD2.Controls.Add(this.btnCancelPanel2);
             this.panelPersonalD2.Controls.Add(this.groupBox6);
             this.panelPersonalD2.Controls.Add(this.groupBox9);
             this.panelPersonalD2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -759,37 +728,41 @@
             this.panelPersonalD2.Name = "panelPersonalD2";
             this.panelPersonalD2.Size = new System.Drawing.Size(1070, 526);
             this.panelPersonalD2.TabIndex = 78;
+            this.panelPersonalD2.Visible = false;
             // 
-            // button3
+            // btnPreviousPannel1
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(733, 489);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 23);
-            this.button3.TabIndex = 66;
-            this.button3.Text = "Previous";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnPreviousPannel1.Image = ((System.Drawing.Image)(resources.GetObject("btnPreviousPannel1.Image")));
+            this.btnPreviousPannel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreviousPannel1.Location = new System.Drawing.Point(733, 489);
+            this.btnPreviousPannel1.Name = "btnPreviousPannel1";
+            this.btnPreviousPannel1.Size = new System.Drawing.Size(105, 23);
+            this.btnPreviousPannel1.TabIndex = 66;
+            this.btnPreviousPannel1.Text = "Previous";
+            this.btnPreviousPannel1.UseVisualStyleBackColor = true;
+            this.btnPreviousPannel1.Click += new System.EventHandler(this.btnPreviousPannel1_Click);
             // 
-            // button4
+            // btnNextPanel3
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(844, 489);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 23);
-            this.button4.TabIndex = 65;
-            this.button4.Text = "Next";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnNextPanel3.Image = ((System.Drawing.Image)(resources.GetObject("btnNextPanel3.Image")));
+            this.btnNextPanel3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNextPanel3.Location = new System.Drawing.Point(844, 489);
+            this.btnNextPanel3.Name = "btnNextPanel3";
+            this.btnNextPanel3.Size = new System.Drawing.Size(105, 23);
+            this.btnNextPanel3.TabIndex = 65;
+            this.btnNextPanel3.Text = "Next";
+            this.btnNextPanel3.UseVisualStyleBackColor = true;
+            this.btnNextPanel3.Click += new System.EventHandler(this.btnNextPanel3_Click);
             // 
-            // button5
+            // btnCancelPanel2
             // 
-            this.button5.Location = new System.Drawing.Point(953, 489);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 23);
-            this.button5.TabIndex = 64;
-            this.button5.Text = "Cancel";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCancelPanel2.Location = new System.Drawing.Point(953, 489);
+            this.btnCancelPanel2.Name = "btnCancelPanel2";
+            this.btnCancelPanel2.Size = new System.Drawing.Size(105, 23);
+            this.btnCancelPanel2.TabIndex = 64;
+            this.btnCancelPanel2.Text = "Cancel";
+            this.btnCancelPanel2.UseVisualStyleBackColor = true;
+            this.btnCancelPanel2.Click += new System.EventHandler(this.btnCancelPanel2_Click);
             // 
             // groupBox6
             // 
@@ -912,6 +885,7 @@
             this.cmbBxDepartment.Name = "cmbBxDepartment";
             this.cmbBxDepartment.Size = new System.Drawing.Size(243, 21);
             this.cmbBxDepartment.TabIndex = 81;
+            this.cmbBxDepartment.DropDownClosed += new System.EventHandler(this.cmbBxDepartment_DropDownClosed);
             // 
             // label97
             // 
@@ -932,6 +906,7 @@
             this.cmbBxFaculty.Name = "cmbBxFaculty";
             this.cmbBxFaculty.Size = new System.Drawing.Size(243, 21);
             this.cmbBxFaculty.TabIndex = 79;
+            this.cmbBxFaculty.DropDownClosed += new System.EventHandler(this.cmbBxFaculty_DropDownClosed);
             // 
             // label96
             // 
@@ -1103,6 +1078,7 @@
             this.btnRemoveChildren.TabIndex = 69;
             this.btnRemoveChildren.Text = "Remove";
             this.btnRemoveChildren.UseVisualStyleBackColor = true;
+            this.btnRemoveChildren.Click += new System.EventHandler(this.btnRemoveChildren_Click);
             // 
             // btnAddChildren
             // 
@@ -1112,6 +1088,7 @@
             this.btnAddChildren.TabIndex = 68;
             this.btnAddChildren.Text = "Add";
             this.btnAddChildren.UseVisualStyleBackColor = true;
+            this.btnAddChildren.Click += new System.EventHandler(this.btnAddChildren_Click);
             // 
             // txtChildBirthCertificate
             // 
@@ -1205,12 +1182,13 @@
             this.btnAddMarriageCertificate.TabIndex = 60;
             this.btnAddMarriageCertificate.Text = "Add Image";
             this.btnAddMarriageCertificate.UseVisualStyleBackColor = true;
+            this.btnAddMarriageCertificate.Click += new System.EventHandler(this.btnAddMarriageCertificate_Click);
             // 
             // panelEduQual
             // 
-            this.panelEduQual.Controls.Add(this.button6);
-            this.panelEduQual.Controls.Add(this.button7);
-            this.panelEduQual.Controls.Add(this.button8);
+            this.panelEduQual.Controls.Add(this.btnPreviousPanel2);
+            this.panelEduQual.Controls.Add(this.btnNextPanel4);
+            this.panelEduQual.Controls.Add(this.btnCancelPanel3);
             this.panelEduQual.Controls.Add(this.groupBox7);
             this.panelEduQual.Controls.Add(this.groupBox11);
             this.panelEduQual.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1218,37 +1196,41 @@
             this.panelEduQual.Name = "panelEduQual";
             this.panelEduQual.Size = new System.Drawing.Size(1070, 526);
             this.panelEduQual.TabIndex = 79;
+            this.panelEduQual.Visible = false;
             // 
-            // button6
+            // btnPreviousPanel2
             // 
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(733, 489);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 23);
-            this.button6.TabIndex = 66;
-            this.button6.Text = "Previous";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnPreviousPanel2.Image = ((System.Drawing.Image)(resources.GetObject("btnPreviousPanel2.Image")));
+            this.btnPreviousPanel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreviousPanel2.Location = new System.Drawing.Point(733, 489);
+            this.btnPreviousPanel2.Name = "btnPreviousPanel2";
+            this.btnPreviousPanel2.Size = new System.Drawing.Size(105, 23);
+            this.btnPreviousPanel2.TabIndex = 66;
+            this.btnPreviousPanel2.Text = "Previous";
+            this.btnPreviousPanel2.UseVisualStyleBackColor = true;
+            this.btnPreviousPanel2.Click += new System.EventHandler(this.btnPreviousPanel2_Click);
             // 
-            // button7
+            // btnNextPanel4
             // 
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(844, 489);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(105, 23);
-            this.button7.TabIndex = 65;
-            this.button7.Text = "Next";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnNextPanel4.Image = ((System.Drawing.Image)(resources.GetObject("btnNextPanel4.Image")));
+            this.btnNextPanel4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNextPanel4.Location = new System.Drawing.Point(844, 489);
+            this.btnNextPanel4.Name = "btnNextPanel4";
+            this.btnNextPanel4.Size = new System.Drawing.Size(105, 23);
+            this.btnNextPanel4.TabIndex = 65;
+            this.btnNextPanel4.Text = "Next";
+            this.btnNextPanel4.UseVisualStyleBackColor = true;
+            this.btnNextPanel4.Click += new System.EventHandler(this.btnNextPanel4_Click);
             // 
-            // button8
+            // btnCancelPanel3
             // 
-            this.button8.Location = new System.Drawing.Point(953, 489);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(105, 23);
-            this.button8.TabIndex = 64;
-            this.button8.Text = "Cancel";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnCancelPanel3.Location = new System.Drawing.Point(953, 489);
+            this.btnCancelPanel3.Name = "btnCancelPanel3";
+            this.btnCancelPanel3.Size = new System.Drawing.Size(105, 23);
+            this.btnCancelPanel3.TabIndex = 64;
+            this.btnCancelPanel3.Text = "Cancel";
+            this.btnCancelPanel3.UseVisualStyleBackColor = true;
+            this.btnCancelPanel3.Click += new System.EventHandler(this.btnCancelPanel3_Click);
             // 
             // groupBox7
             // 
@@ -1279,6 +1261,7 @@
             this.btnRemoveEducation.TabIndex = 59;
             this.btnRemoveEducation.Text = "Remove";
             this.btnRemoveEducation.UseVisualStyleBackColor = true;
+            this.btnRemoveEducation.Click += new System.EventHandler(this.btnRemoveEducation_Click);
             // 
             // txtGrade
             // 
@@ -1345,6 +1328,7 @@
             this.btnAddEducation.TabIndex = 55;
             this.btnAddEducation.Text = "Add";
             this.btnAddEducation.UseVisualStyleBackColor = true;
+            this.btnAddEducation.Click += new System.EventHandler(this.btnAddEducation_Click);
             // 
             // dateEffective
             // 
@@ -1472,6 +1456,7 @@
             this.btnServiceRemove.TabIndex = 75;
             this.btnServiceRemove.Text = "Remove";
             this.btnServiceRemove.UseVisualStyleBackColor = true;
+            this.btnServiceRemove.Click += new System.EventHandler(this.btnServiceRemove_Click);
             // 
             // btnServiceAdd
             // 
@@ -1482,6 +1467,7 @@
             this.btnServiceAdd.TabIndex = 74;
             this.btnServiceAdd.Text = "Add";
             this.btnServiceAdd.UseVisualStyleBackColor = true;
+            this.btnServiceAdd.Click += new System.EventHandler(this.btnServiceAdd_Click);
             // 
             // dateServiceFrom
             // 
@@ -1518,8 +1504,9 @@
             // 
             // panelOther
             // 
-            this.panelOther.Controls.Add(this.button9);
-            this.panelOther.Controls.Add(this.button11);
+            this.panelOther.Controls.Add(this.btnSave);
+            this.panelOther.Controls.Add(this.btnPreviousPanel3);
+            this.panelOther.Controls.Add(this.btnCancelPanel4);
             this.panelOther.Controls.Add(this.groupBox8);
             this.panelOther.Controls.Add(this.groupBox10);
             this.panelOther.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1527,26 +1514,29 @@
             this.panelOther.Name = "panelOther";
             this.panelOther.Size = new System.Drawing.Size(1070, 526);
             this.panelOther.TabIndex = 80;
+            this.panelOther.Visible = false;
             // 
-            // button9
+            // btnPreviousPanel3
             // 
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(844, 489);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(105, 23);
-            this.button9.TabIndex = 66;
-            this.button9.Text = "Previous";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnPreviousPanel3.Image = ((System.Drawing.Image)(resources.GetObject("btnPreviousPanel3.Image")));
+            this.btnPreviousPanel3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreviousPanel3.Location = new System.Drawing.Point(733, 489);
+            this.btnPreviousPanel3.Name = "btnPreviousPanel3";
+            this.btnPreviousPanel3.Size = new System.Drawing.Size(105, 23);
+            this.btnPreviousPanel3.TabIndex = 66;
+            this.btnPreviousPanel3.Text = "Previous";
+            this.btnPreviousPanel3.UseVisualStyleBackColor = true;
+            this.btnPreviousPanel3.Click += new System.EventHandler(this.btnPreviousPanel3_Click);
             // 
-            // button11
+            // btnCancelPanel4
             // 
-            this.button11.Location = new System.Drawing.Point(953, 489);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(105, 23);
-            this.button11.TabIndex = 64;
-            this.button11.Text = "Cancel";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnCancelPanel4.Location = new System.Drawing.Point(953, 489);
+            this.btnCancelPanel4.Name = "btnCancelPanel4";
+            this.btnCancelPanel4.Size = new System.Drawing.Size(105, 23);
+            this.btnCancelPanel4.TabIndex = 64;
+            this.btnCancelPanel4.Text = "Cancel";
+            this.btnCancelPanel4.UseVisualStyleBackColor = true;
+            this.btnCancelPanel4.Click += new System.EventHandler(this.btnCancelPanel4_Click);
             // 
             // groupBox8
             // 
@@ -1624,6 +1614,7 @@
             this.btnRemoveOtherPosition.TabIndex = 53;
             this.btnRemoveOtherPosition.Text = "Remove";
             this.btnRemoveOtherPosition.UseVisualStyleBackColor = true;
+            this.btnRemoveOtherPosition.Click += new System.EventHandler(this.btnRemoveOtherPosition_Click);
             // 
             // btnAddOtherPosition
             // 
@@ -1633,6 +1624,7 @@
             this.btnAddOtherPosition.TabIndex = 52;
             this.btnAddOtherPosition.Text = "Add";
             this.btnAddOtherPosition.UseVisualStyleBackColor = true;
+            this.btnAddOtherPosition.Click += new System.EventHandler(this.btnAddOtherPosition_Click);
             // 
             // dateOtherPositionFrom
             // 
@@ -1670,12 +1662,14 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.comboBox1);
-            this.groupBox10.Controls.Add(this.dateTimePicker1);
+            this.groupBox10.Controls.Add(this.label1);
+            this.groupBox10.Controls.Add(this.cmbBxLeaveType);
+            this.groupBox10.Controls.Add(this.dateLeaveTo);
             this.groupBox10.Controls.Add(this.label15);
-            this.groupBox10.Controls.Add(this.dataGridView1);
-            this.groupBox10.Controls.Add(this.button12);
-            this.groupBox10.Controls.Add(this.button13);
-            this.groupBox10.Controls.Add(this.dateTimePicker2);
+            this.groupBox10.Controls.Add(this.tblLeave);
+            this.groupBox10.Controls.Add(this.btnRemoveLeave);
+            this.groupBox10.Controls.Add(this.btnAddLeave);
+            this.groupBox10.Controls.Add(this.dateLeaveFrom);
             this.groupBox10.Controls.Add(this.label26);
             this.groupBox10.Controls.Add(this.label27);
             this.groupBox10.Location = new System.Drawing.Point(12, 247);
@@ -1685,44 +1679,47 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Leave Details";
             // 
-            // comboBox1
+            // cmbBxLeaveType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(289, 21);
-            this.comboBox1.TabIndex = 66;
+            this.cmbBxLeaveType.FormattingEnabled = true;
+            this.cmbBxLeaveType.Items.AddRange(new object[] {
+            "Pay",
+            "No Pay"});
+            this.cmbBxLeaveType.Location = new System.Drawing.Point(107, 42);
+            this.cmbBxLeaveType.Name = "cmbBxLeaveType";
+            this.cmbBxLeaveType.Size = new System.Drawing.Size(289, 21);
+            this.cmbBxLeaveType.TabIndex = 66;
             // 
-            // dateTimePicker1
+            // dateLeaveTo
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(104, 98);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(289, 20);
-            this.dateTimePicker1.TabIndex = 65;
+            this.dateLeaveTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateLeaveTo.Location = new System.Drawing.Point(107, 123);
+            this.dateLeaveTo.Name = "dateLeaveTo";
+            this.dateLeaveTo.Size = new System.Drawing.Size(289, 20);
+            this.dateLeaveTo.TabIndex = 65;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(31, 100);
+            this.label15.Location = new System.Drawing.Point(20, 125);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(20, 13);
             this.label15.TabIndex = 64;
             this.label15.Text = "To";
             // 
-            // dataGridView1
+            // tblLeave
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tblLeave.AllowUserToAddRows = false;
+            this.tblLeave.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblLeave.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridView1.Location = new System.Drawing.Point(430, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(601, 171);
-            this.dataGridView1.TabIndex = 63;
+            this.tblLeave.Location = new System.Drawing.Point(430, 42);
+            this.tblLeave.Name = "tblLeave";
+            this.tblLeave.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tblLeave.Size = new System.Drawing.Size(601, 171);
+            this.tblLeave.TabIndex = 63;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1743,36 +1740,38 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Width = 170;
             // 
-            // button12
+            // btnRemoveLeave
             // 
-            this.button12.Location = new System.Drawing.Point(237, 130);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 62;
-            this.button12.Text = "Remove";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnRemoveLeave.Location = new System.Drawing.Point(240, 155);
+            this.btnRemoveLeave.Name = "btnRemoveLeave";
+            this.btnRemoveLeave.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveLeave.TabIndex = 62;
+            this.btnRemoveLeave.Text = "Remove";
+            this.btnRemoveLeave.UseVisualStyleBackColor = true;
+            this.btnRemoveLeave.Click += new System.EventHandler(this.btnRemoveLeave_Click);
             // 
-            // button13
+            // btnAddLeave
             // 
-            this.button13.Location = new System.Drawing.Point(318, 130);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 61;
-            this.button13.Text = "Add";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnAddLeave.Location = new System.Drawing.Point(321, 155);
+            this.btnAddLeave.Name = "btnAddLeave";
+            this.btnAddLeave.Size = new System.Drawing.Size(75, 23);
+            this.btnAddLeave.TabIndex = 61;
+            this.btnAddLeave.Text = "Add";
+            this.btnAddLeave.UseVisualStyleBackColor = true;
+            this.btnAddLeave.Click += new System.EventHandler(this.btnAddLeave_Click);
             // 
-            // dateTimePicker2
+            // dateLeaveFrom
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(104, 70);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(289, 20);
-            this.dateTimePicker2.TabIndex = 60;
+            this.dateLeaveFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateLeaveFrom.Location = new System.Drawing.Point(107, 95);
+            this.dateLeaveFrom.Name = "dateLeaveFrom";
+            this.dateLeaveFrom.Size = new System.Drawing.Size(289, 20);
+            this.dateLeaveFrom.TabIndex = 60;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(31, 72);
+            this.label26.Location = new System.Drawing.Point(20, 97);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(30, 13);
             this.label26.TabIndex = 59;
@@ -1781,24 +1780,63 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(31, 45);
+            this.label27.Location = new System.Drawing.Point(20, 45);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(64, 13);
+            this.label27.Size = new System.Drawing.Size(85, 13);
             this.label27.TabIndex = 57;
-            this.label27.Text = "Leave Type";
+            this.label27.Text = "Leave Catergory";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(844, 489);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(105, 23);
+            this.btnSave.TabIndex = 67;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // openFileDialogPersonalPic
+            // 
+            this.openFileDialogPersonalPic.FileName = "openFileDialog1";
+            // 
+            // openFileDialogMarriageCertificate
+            // 
+            this.openFileDialogMarriageCertificate.FileName = "openFileDialog1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Pay",
+            "No Pay"});
+            this.comboBox1.Location = new System.Drawing.Point(107, 68);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(289, 21);
+            this.comboBox1.TabIndex = 68;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "Leave Type";
             // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 526);
-            this.Controls.Add(this.panelOther);
-            this.Controls.Add(this.panelEduQual);
             this.Controls.Add(this.panelPersonalD2);
+            this.Controls.Add(this.panelOther);
             this.Controls.Add(this.panelPersonalD1);
+            this.Controls.Add(this.panelEduQual);
             this.Name = "Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Staff Member";
+            this.Load += new System.EventHandler(this.Add_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1831,7 +1869,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblOtherPositions)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLeave)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1872,8 +1910,6 @@
         private System.Windows.Forms.TextBox txtTeleOffice;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtMailZipCode;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label92;
@@ -1882,21 +1918,19 @@
         private System.Windows.Forms.TextBox txtAddress1Mail;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox chkBxSame;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCityHome;
+        private System.Windows.Forms.TextBox txtHomeZipCode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtAddress1Home;
         private System.Windows.Forms.Panel panelPersonalD1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNextPanel2;
         private System.Windows.Forms.Button bttnCancel;
         private System.Windows.Forms.Panel panelPersonalD2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnPreviousPannel1;
+        private System.Windows.Forms.Button btnNextPanel3;
+        private System.Windows.Forms.Button btnCancelPanel2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtServiceNo;
@@ -1940,9 +1974,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.Panel panelEduQual;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnPreviousPanel2;
+        private System.Windows.Forms.Button btnNextPanel4;
+        private System.Windows.Forms.Button btnCancelPanel3;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button btnRemoveEducation;
         private System.Windows.Forms.TextBox txtGrade;
@@ -1973,8 +2007,8 @@
         private System.Windows.Forms.TextBox txtServicePosition;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panelOther;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnPreviousPanel3;
+        private System.Windows.Forms.Button btnCancelPanel4;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DateTimePicker dateOtherPosistionTo;
         private System.Windows.Forms.Label label12;
@@ -1989,17 +2023,22 @@
         private System.Windows.Forms.TextBox txtOtherPosition;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbBxLeaveType;
+        private System.Windows.Forms.DateTimePicker dateLeaveTo;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tblLeave;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button btnRemoveLeave;
+        private System.Windows.Forms.Button btnAddLeave;
+        private System.Windows.Forms.DateTimePicker dateLeaveFrom;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.OpenFileDialog openFileDialogPersonalPic;
+        private System.Windows.Forms.OpenFileDialog openFileDialogMarriageCertificate;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
