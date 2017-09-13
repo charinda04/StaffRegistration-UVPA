@@ -1,13 +1,135 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StaffRegistration
 {
     class CustomReport
     {
+
+        Connection conn = new Connection();
+
+        public void populateTreeView(ref TreeView trVwFaculty, ref TreeView trVwDesignation, ref TreeView trVwDepartment)
+        {
+            try
+            {
+                trVwFaculty.Nodes.Clear();
+                trVwDesignation.Nodes.Clear();
+                trVwDepartment.Nodes.Clear();
+
+
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `faculty`", conn.connConnection());
+               
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+                MySqlDataReader reader1;
+
+                
+                reader1 = cmd.ExecuteReader();
+                TreeNode node = new TreeNode("Faculty Name");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+                    
+                    node.Nodes.Add(reader1["Faculty Name"].ToString());
+
+                    
+                }
+                trVwFaculty.Nodes.Add(node);
+                trVwFaculty.CheckBoxes = true;
+                reader1.Close();
+
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `department`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+                
+
+                
+                reader1 = cmd.ExecuteReader();
+                TreeNode node1 = new TreeNode("Department Name");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    node1.Nodes.Add(reader1["Department Name"].ToString());
+
+
+                }
+                trVwDepartment.Nodes.Add(node1);
+                trVwDepartment.CheckBoxes = true;
+                reader1.Close();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `designations`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+
+
+
+                reader1 = cmd.ExecuteReader();
+                TreeNode node2 = new TreeNode("Designation");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    node2.Nodes.Add(reader1["Designation"].ToString());
+
+
+                }
+                trVwDesignation.Nodes.Add(node2);
+                trVwDesignation.CheckBoxes = true;
+
+
+
+                reader1.Close();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        // Updates all child tree nodes recursively.
+        public void CheckAllChildNodes(TreeNode treeNode, bool nodeChecked)
+        {
+            foreach (TreeNode node in treeNode.Nodes)
+            {
+                node.Checked = nodeChecked;
+                if (node.Nodes.Count > 0)
+                {
+                    // If the current node has child nodes, call the CheckAllChildsNodes method recursively.
+                    this.CheckAllChildNodes(node, nodeChecked);
+                }
+            }
+        }
+
+
         /*
          
 
@@ -518,8 +640,8 @@ namespace StaffRegistration
                 MessageBox.Show(ex.ToString());
             }
         }*/
-         
-         
+
+
 
     }
 }

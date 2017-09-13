@@ -54,12 +54,14 @@
     <Compile Include="Alerts.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CustomReport.cs" />
+    <Compile Include="DeleteStaff.cs" />
     <Compile Include="Leaves.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Leaves.Designer.cs">
       <DependentUpon>Leaves.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionPanel.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>

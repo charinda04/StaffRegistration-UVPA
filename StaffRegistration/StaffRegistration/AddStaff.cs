@@ -14,15 +14,17 @@ namespace StaffRegistration
         
         Connection conn = new Connection();
         private String primaryKey = null;
+        private bool unique = false;
+       
 
         public void saveAcademicStaff(String title, String txtFullName, String txtInitials, String dateDob, String gender, String txtTelePrivate, String txtTeleOffice, String txtEmailPrivate, String txtEmailOffice,
             String txtNIC, String txtPassport, String cmbBxDesignation, String cmbBxFaculty, String cmbBxDepartment, String txtUPF, String dateAppointment, String dateRetirement, String txtMarriageCertificate, String txtServiceNo,
-            String personalPicLoc, String marriageCertificateLoc, String cmbBxSalaryStep, String dateIncrement)
+            String personalPicLoc, String marriageCertificateLoc, String cmbBxSalaryStep, String dateIncrement, String cmbBxSalaryScale, String healthInsurance, String ETFno, String salaryStepAmount, String highestQualification)
         {
            // try
             {
 
-
+                MessageBox.Show("0");
 
                 byte[] marriageImg = null;
                 byte[] personalImg = null;
@@ -48,30 +50,35 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
                 if (marriageImg == null && personalImg != null)
                 {
-                    cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`, `Person Pic`, `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`) values (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18,@19,@20,@21,@22,@23);", conn.connConnection());
+                    MessageBox.Show("1");
+                    cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`, `Person Pic`, `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`, `Health Insurance`, `ETF no`, `Salary Step Amount`,`Highest Qualification`) values (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@17,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
                     cmd.Parameters.AddWithValue("@17", personalImg);
 
 
                 }
                 else if (personalImg == null && marriageImg != null)
                 {
-                    cmd = new MySqlCommand("insert into AcademicStaff ([Title],[Full Name],[Name with Initials],[DOB] ,[Gender],[Private Contact No] ,[Office Contact No] ,[Private Email],[Office Email],[NIC No],[Passport No],[UPF No],[Appointment Date] ,[Retirement Date] ,[Marriage Certificate No] ,[Marriage Certificate Pic],[Type] ,[ServiceNo] ,[Department Name] ,[Designation],[Salary Step],[Increment Date]) values (@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@19,@20,@21,@22,@23,@24);", conn.connConnection());
+                    MessageBox.Show("2");
+                    cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`, `Marriage Certificate Pic`, `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`, `Health Insurance`, `ETF no`, `Salary Step Amount`,`Highest Qualification`) VALUES (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
                     cmd.Parameters.AddWithValue("@16", marriageImg);
 
 
                 }
                 else if (marriageImg == null && personalImg == null)
                 {
-                    cmd = new MySqlCommand("insert into AcademicStaff ([Title],[Full Name],[Name with Initials],[DOB],[Gender],[Private Contact No],[Office Contact No],[Private Email],[Office Email],[NIC No] ,[Passport No] ,[UPF No],[Appointment Date],[Retirement Date] ,[Marriage Certificate No] ,[Type],[ServiceNo] ,[Department Name],[Designation],[Salary Step],[Increment Date]) values (@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@19,@20,@21,@22,@23,@24);", conn.connConnection());
+                    MessageBox.Show("3");
+                    cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`,  `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`, `Health Insurance`, `ETF no`, `Salary Step Amount`,`Highest Qualification`) VALUES (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
 
 
 
                 }
                 else
                 {
-                    cmd = new MySqlCommand("insert into AcademicStaff values (@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18,@19,@20,@21,@22,@23,@24);", conn.connConnection());
-                    cmd.Parameters.AddWithValue("@17", marriageImg);
-                    cmd.Parameters.AddWithValue("@18", personalImg);
+                    MessageBox.Show("4");
+                    cmd = new MySqlCommand("INSERT INTO `academicstaff` VALUES (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@16", marriageImg);
+                    cmd.Parameters.AddWithValue("@17", personalImg);
+                    
 
 
 
@@ -100,9 +107,15 @@ namespace StaffRegistration
                 cmd.Parameters.AddWithValue("@21", cmbBxDesignation);
                 cmd.Parameters.AddWithValue("@22", cmbBxSalaryStep);
                 cmd.Parameters.AddWithValue("@23", dateIncrement);
-
+                cmd.Parameters.AddWithValue("@24", cmbBxSalaryScale);
+                cmd.Parameters.AddWithValue("@25", healthInsurance);
+                cmd.Parameters.AddWithValue("@26", ETFno);
+                cmd.Parameters.AddWithValue("@27", salaryStepAmount);
+                //if (highestQualification == "")
+                   // highestQualification = "None";
+                cmd.Parameters.AddWithValue("@28", highestQualification);
                 cmd.ExecuteNonQuery();
-
+                unique = false;
 
               //  cmd = new MySqlCommand("SELECT ASID FROM AcademicStaff where [NIC No] = @1; ", conn.connConnection());
               //  cmd.Parameters.AddWithValue("@1", txtNIC);
@@ -119,6 +132,8 @@ namespace StaffRegistration
 
                 conn.closeConnection();
                 cmd.Dispose();
+
+                primaryKey = txtNIC;
 
             }
           //  catch (Exception ex)
@@ -140,7 +155,7 @@ namespace StaffRegistration
                 for (int i = 0; i < childrenCount; i++)
                 {
                     cmd = conn.connConnection().CreateCommand();
-                    cmd = new MySqlCommand("insert into ChildrenDetail values(@1, @2, @3,@4)", conn.connConnection());
+                    cmd = new MySqlCommand("INSERT INTO `childrendetail` VALUES(@1, @2, @3,@4)", conn.connConnection());
                     cmd.Parameters.AddWithValue("@1", primaryKey);
                     cmd.Parameters.AddWithValue("@2", tblChildren.Rows[i].Cells[0].Value.ToString());
                     cmd.Parameters.AddWithValue("@3", tblChildren.Rows[i].Cells[1].Value.ToString());
@@ -171,7 +186,7 @@ namespace StaffRegistration
                 for (int i = 0; i < educationCount; i++)
                 {
                     cmd = conn.connConnection().CreateCommand();
-                    cmd = new MySqlCommand("insert into EducationalQulifications values(@1, @2, @3,@4,@5)", conn.connConnection());
+                    cmd = new MySqlCommand("INSERT INTO `educationalqulifications` VALUES(@1, @2, @3,@4,@5)", conn.connConnection());
                     cmd.Parameters.AddWithValue("@1", primaryKey);
                     cmd.Parameters.AddWithValue("@2", tblEducation.Rows[i].Cells[0].Value.ToString());
                     cmd.Parameters.AddWithValue("@3", tblEducation.Rows[i].Cells[1].Value.ToString());
@@ -203,7 +218,7 @@ namespace StaffRegistration
                 for (int i = 0; i < otherPositionsCount; i++)
                 {
                     cmd = conn.connConnection().CreateCommand();
-                    cmd = new MySqlCommand("insert into OtherPositions values(@1, @2, @3,@4)", conn.connConnection());
+                    cmd = new MySqlCommand("INSERT INTO `otherpositions` VALUES(@1, @2, @3,@4)", conn.connConnection());
                     cmd.Parameters.AddWithValue("@1", primaryKey);
                     cmd.Parameters.AddWithValue("@2", tblOtherPositions.Rows[i].Cells[0].Value.ToString());
                     cmd.Parameters.AddWithValue("@3", tblOtherPositions.Rows[i].Cells[1].Value.ToString());
@@ -233,7 +248,7 @@ namespace StaffRegistration
                 for (int i = 0; i < serviceCount; i++)
                 {
                     cmd = conn.connConnection().CreateCommand();
-                    cmd = new MySqlCommand("insert into ServiceRecords values(@1, @2, @3,@4)", conn.connConnection());
+                    cmd = new MySqlCommand("INSERT INTO `servicerecords` VALUES(@1, @2, @3,@4)", conn.connConnection());
                     cmd.Parameters.AddWithValue("@1", primaryKey);
                     cmd.Parameters.AddWithValue("@2", tblService.Rows[i].Cells[0].Value.ToString());
                     cmd.Parameters.AddWithValue("@3", tblService.Rows[i].Cells[1].Value.ToString());
@@ -250,12 +265,42 @@ namespace StaffRegistration
             }
         }
 
+        public void addLeave(DataGridView tblLeave)
+        {
+            try
+            {
+                int leaveCount = tblLeave.Rows.Count;
+
+                conn.connOpen();
+                conn.connConnection();
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+
+                for (int i = 0; i < leaveCount; i++)
+                {
+                    cmd = conn.connConnection().CreateCommand();
+                    cmd = new MySqlCommand("INSERT INTO `leave` VALUES(@1, @2, @3,@4,@5)", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", primaryKey);
+                    cmd.Parameters.AddWithValue("@2", tblLeave.Rows[i].Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@3", tblLeave.Rows[i].Cells[1].Value.ToString());
+                    cmd.Parameters.AddWithValue("@4", tblLeave.Rows[i].Cells[2].Value.ToString());
+                    cmd.Parameters.AddWithValue("@5", tblLeave.Rows[i].Cells[3].Value.ToString());
+                    cmd.ExecuteNonQuery();
+                }
+
+                conn.closeConnection();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void addAddress(String txtAddress1Mail, String txtCityMail, String txtMailZipCode, String txtAddress1Home, String txtCityHome, String txtHomeZipCode)
         {
             conn.connOpen();
             conn.connConnection();
             MySqlCommand cmd = conn.connConnection().CreateCommand();
-            cmd = new MySqlCommand("insert into Address values (@1,@2,@3,@4,@5,@6,@7);", conn.connConnection());
+            cmd = new MySqlCommand("INSERT INTO `address` VALUES (@1,@2,@3,@4,@5,@6,@7);", conn.connConnection());
 
 
             cmd.Parameters.AddWithValue("@1", primaryKey);
@@ -277,6 +322,7 @@ namespace StaffRegistration
             try
             {
                 cmbBxFaculty.Items.Clear();
+                cmbBxFaculty.Items.Add("");
                 string selectSQL = "SELECT `Faculty Name` FROM `Faculty`;";
 
                 conn.connOpen();
@@ -305,6 +351,7 @@ namespace StaffRegistration
             try
             {
                 cmbBxDepartment.Items.Clear();
+                cmbBxDepartment.Items.Add("");
                 string selectSQL = "SELECT `Department Name` FROM `department`;";
 
                 conn.connOpen();
@@ -412,12 +459,54 @@ namespace StaffRegistration
             }
         }
 
-        /*public void salaryStepComboBox(ComboBox cmbBxSalaryStep)
+        public void salaryStepComboBox(ComboBox cmbBxSalaryStep, String salaryScale, String salaryCode)
         {
             try
             {
                 cmbBxSalaryStep.Items.Clear();
-                string selectSQL = "SELECT [Salary Step] FROM [SalaryStep];";
+                string selectSQL = "SELECT `Salary Steps` FROM `salaryscale` WHERE `Salary Scale` = @1 AND `Salary Code` = @2";
+
+                conn.connOpen();
+                conn.connConnection();
+
+                MySqlCommand comm = new MySqlCommand(selectSQL, conn.connConnection());
+                MySqlDataReader reader;
+
+                comm.Parameters.AddWithValue("@1", salaryScale);
+                comm.Parameters.AddWithValue("@2", salaryCode);
+                int count = 1;
+                //MessageBox.Show("test");
+
+                reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    //string faculty = reader.GetString("faculty");
+                    int salaryStep = int.Parse(reader["Salary Steps"].ToString());
+                    while (count <= salaryStep)
+                    {
+                        cmbBxSalaryStep.Items.Add(count);
+                        count++;
+                    }                    
+
+                    //MessageBox.Show(salaryStep.ToString());
+                    //cmbBxSalaryStep.Items.Add(reader["Salary Step"]);
+
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void loadLeaveCombo(ComboBox cmbBxLeave)
+        {
+            try
+            {
+                cmbBxLeave.Items.Clear();
+                string selectSQL = "SELECT * FROM `leavetype`;";
 
                 conn.connOpen();
                 conn.connConnection();
@@ -430,7 +519,7 @@ namespace StaffRegistration
                 while (reader.Read())
                 {
                     //string faculty = reader.GetString("faculty");
-                    cmbBxSalaryStep.Items.Add(reader["Salary Step"]);
+                    cmbBxLeave.Items.Add(reader["Leave Type"]);
                 }
                 reader.Close();
             }
@@ -438,7 +527,7 @@ namespace StaffRegistration
             {
                 MessageBox.Show(ex.Message);
             }
-        }*/
+        }
 
         public void selectFaculty(ComboBox cmbBxFaculty, String department)
         {
@@ -478,7 +567,7 @@ namespace StaffRegistration
             try
             {
                 cmbBxDepartment.Items.Clear();
-
+                cmbBxDepartment.Items.Add("");
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
                 cmd = conn.connConnection().CreateCommand();
                 cmd = new MySqlCommand("SELECT `Department Name` FROM `Department` where `Faculty Name` = @1", conn.connConnection());
@@ -506,15 +595,15 @@ namespace StaffRegistration
             }
         }
 
-        public void selectSalaryCode(ComboBox cmbBxSalaryCode, ComboBox cmbBxSalaryScale, String salaryStep)
+        public void selectSalaryCode(ComboBox cmbBxSalaryCode, String salaryScale)
         {
             try
             {
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
 
                 cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT  `SalaryScale`.`Salary Scale`,`Salary Code` FROM `SalaryScale`,`SalaryStep` WHERE `Salary Step` =  @1 AND  `SalaryStep`.`Salary Scale` =  `SalaryScale`.`Salary Scale`;", conn.connConnection());
-                cmd.Parameters.AddWithValue("@1", salaryStep);
+                cmd = new MySqlCommand("SELECT  `SalaryScale`.`Salary Scale`,`Salary Code` FROM `SalaryScale` WHERE `Salary Scale` =  @1;", conn.connConnection());
+                cmd.Parameters.AddWithValue("@1", salaryScale);
 
                 conn.connOpen();
                 conn.connConnection();
@@ -527,11 +616,12 @@ namespace StaffRegistration
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-
+                    cmbBxSalaryCode.Items.Add(reader["Salary Code"]);
                     a = reader.GetValue(0).ToString();
                     b = reader.GetValue(1).ToString();
-                    cmbBxSalaryScale.SelectedItem = a;
+                    //cmbBxSalaryScale.SelectedItem = a;
                     cmbBxSalaryCode.SelectedItem = b;
+                    
                 }
 
                 reader.Close();
@@ -543,16 +633,17 @@ namespace StaffRegistration
             }
         }
 
-        public void selectSalaryStep(ComboBox cmbBxSalaryStep, String scale)
+        public void calculateSalaryStep(String code,String scale, String step, ref TextBox amount)
         {
             try
             {
-                cmbBxSalaryStep.Items.Clear();
-
+                //cmbBxSalaryStep.Items.Clear();
+                double total = 0.0;
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
                 cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT `Salary Step` FROM `SalaryStep` where `Salary Scale` = @1", conn.connConnection());
+                cmd = new MySqlCommand("SELECT `Step Amount` FROM `salaryscale` WHERE `Salary Scale` = @1 AND `Salary Code` = @2", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", scale);
+                cmd.Parameters.AddWithValue("@2", code);
 
                 conn.connOpen();
                 conn.connConnection();
@@ -564,8 +655,9 @@ namespace StaffRegistration
                 reader1 = cmd.ExecuteReader();
                 while (reader1.Read())
                 {
-
-                    cmbBxSalaryStep.Items.Add(reader1["Salary Step"]);
+                    total = double.Parse(step) * double.Parse(reader1["Step Amount"].ToString());
+                    amount.Text = total.ToString();
+                    //cmbBxSalaryStep.Items.Add(reader1["Salary Step"]);
                 }
                 reader1.Close();
                 cmd.Dispose();
@@ -609,73 +701,137 @@ namespace StaffRegistration
             }
         }
 
-      /*  public void clearAll(ref String title, ref String gender, ref RadioButton Mr, ref RadioButton Mrs, ref RadioButton Miss, ref TextBox txtFullName, ref TextBox txtInitials, ref DateTimePicker dateDob, ref RadioButton male, ref RadioButton female, ref TextBox txtTelePrivate, ref TextBox txtTeleOffice, ref TextBox txtEmailPrivate, ref TextBox txtEmailOffice,
-            ref MaskedTextBox txtNIC, ref TextBox txtPassport, ref ComboBox cmbBxDesignation, ref ComboBox cmbBxFaculty, ref ComboBox cmbBxDepartment, ref TextBox txtUPF, ref DateTimePicker dateAppointment, ref DateTimePicker dateRetirement, ref TextBox txtMarriageCertificate, ref TextBox txtServiceNo,
-            ref String personalPicLoc, ref String marriageCertificateLoc, ref ComboBox cmbBxSalaryCode, ref ComboBox cmbBxScale, ref ComboBox cmbBxSalaryStep, ref DateTimePicker dateIncrement, ref TextBox txtAddress1Mail, ref TextBox txtCityMail, ref TextBox txtMailZipCode, ref TextBox txtAddress1Home, ref TextBox txtCityHome, ref TextBox txtHomeZipCode,
-            DataGridView tblChildren, DataGridView tblEducation, DataGridView tblOtherPositions, DataGridView tblService, ref PictureBox ptBxPersonalPic, ref PictureBox ptBxMarriageCertificate, ref CheckBox chkBxSame)
+        public void checkAddStaffPanel1(RadioButton rdoBtnMr, RadioButton rdoBtnMrs, RadioButton rdoBtnMiss, TextBox txtFullName, TextBox txtInitials, RadioButton rdoBtnMale, RadioButton rdoBtnFemale, TextBox txtTelePrivate, TextBox txtTeleOffice, MaskedTextBox txtNIC, TextBox txtNicUpdate, ref Button btnNextPanel2)
         {
-            tblChildren.DataSource = null;
-            tblEducation.DataSource = null;
-            tblService.DataSource = null;
-            tblOtherPositions.DataSource = null;
+            if (txtNicUpdate.Text.Length > 0)
+            {
+                btnNextPanel2.Enabled = true;
+            }
+            else if ((rdoBtnMr.Checked || rdoBtnMrs.Checked || rdoBtnMiss.Checked) && txtFullName.Text.Length > 0 && txtInitials.Text.Length > 0 && (rdoBtnMale.Checked || rdoBtnFemale.Checked) && (txtTelePrivate.Text.Length > 0 || txtTeleOffice.Text.Length > 0) && unique == true && (txtNIC.MaskCompleted == true  && !String.IsNullOrEmpty(txtNIC.Text) ))
+            {
+                btnNextPanel2.Enabled = true;
+            }
+            else
+            {
+                btnNextPanel2.Enabled = false;
+            }
+        }
 
-            if (tblChildren.Rows.Count != 0)
-                tblChildren.Rows.Clear();
-            if (tblEducation.Rows.Count != 0)
-                tblEducation.Rows.Clear();
-            if (tblService.Rows.Count != 0)
-                tblService.Rows.Clear();
-            if (tblOtherPositions.Rows.Count != 0)
-                tblOtherPositions.Rows.Clear();
+        public void checkAddStaffPanel2(RadioButton rdoBtnYes, RadioButton rdoBtnNo, ComboBox cmbBxDesignation, ComboBox cmbBxFaculty, ComboBox cmbBxDepartment, TextBox txtUPF, TextBox txtServiceNo, ComboBox cmbBxSalaryCode, ComboBox cmbBxSalaryScale, ComboBox cmbBxSalaryStep, TextBox txtSalaryStep, TextBox txtETF, ref Button btnNextPanel3)
+        {
+            if ((rdoBtnYes.Checked || rdoBtnNo.Checked) && cmbBxDesignation.Text.Length>0  && cmbBxFaculty.Text.Length > 0 && cmbBxDepartment.Text.Length > 0 && txtUPF.Text.Length > 0 && txtServiceNo.Text.Length > 0 && cmbBxSalaryCode.Text.Length > 0 && cmbBxSalaryScale.Text.Length > 0 && cmbBxSalaryStep.Text.Length > 0  && txtSalaryStep.Text.Length > 0 && txtETF.Text.Length > 0 )
+            {
+                btnNextPanel3.Enabled = true;
+            }
+            else
+            {
+                btnNextPanel3.Enabled = false;
+            }
+        }
 
-            title = null;
-            Miss.Checked = false;
-            Mr.Checked = false;
-            Mrs.Checked = false;
+        public void checkNIC(MaskedTextBox txtNIC)
+        {
+            try
+            {
+   
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT `NIC` FROM `academicstaff` WHERE `NIC` = @1", conn.connConnection());
+                cmd.Parameters.AddWithValue("@1", txtNIC.Text);
 
-            txtFullName.Text = "";
-            txtInitials.Text = "";
-            dateDob.Value = DateTime.Now;
-
-            gender = null;
-            male.Checked = false;
-            female.Checked = false;
-
-            txtTelePrivate.Text = "";
-            txtTeleOffice.Text = "";
-            txtEmailPrivate.Text = "";
-            txtEmailOffice.Text = "";
-            txtNIC.Text = "";
-            txtPassport.Text = "";
-            cmbBxDesignation.Text = "";
-            cmbBxFaculty.Text = "";
-            cmbBxDepartment.Text = "";
-            txtUPF.Text = "";
-            dateAppointment.Value = DateTime.Now;
-
-            dateRetirement.Value = DateTime.Now;
-            txtMarriageCertificate.Text = "";
-
-            txtServiceNo.Text = "";
-            personalPicLoc = null;
-            ptBxPersonalPic.Image = null;
-            ptBxMarriageCertificate.Image = null;
-            marriageCertificateLoc = null;
-            cmbBxSalaryStep.Text = "";
-            cmbBxSalaryCode.Text = "";
-            cmbBxScale.Text = "";
-            dateIncrement.Value = DateTime.Now;
-
-            chkBxSame.Checked = false;
-            txtAddress1Mail.Text = "";
-            txtCityMail.Text = "";
-            txtMailZipCode.Text = "";
-            txtAddress1Home.Text = "";
-            txtCityHome.Text = "";
-            txtHomeZipCode.Text = "";
+                conn.connOpen();
+                conn.connConnection();
 
 
-        }*/
-        
+                MySqlDataReader reader1;
+
+
+                reader1 = cmd.ExecuteReader();
+                if (reader1.Read())
+                {
+                    MessageBox.Show("NIC no already exits");
+                    txtNIC.Text = "";
+                }
+                else
+                {
+                    unique = true;
+                }
+                reader1.Close();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /*  public void clearAll(ref String title, ref String gender, ref RadioButton Mr, ref RadioButton Mrs, ref RadioButton Miss, ref TextBox txtFullName, ref TextBox txtInitials, ref DateTimePicker dateDob, ref RadioButton male, ref RadioButton female, ref TextBox txtTelePrivate, ref TextBox txtTeleOffice, ref TextBox txtEmailPrivate, ref TextBox txtEmailOffice,
+              ref MaskedTextBox txtNIC, ref TextBox txtPassport, ref ComboBox cmbBxDesignation, ref ComboBox cmbBxFaculty, ref ComboBox cmbBxDepartment, ref TextBox txtUPF, ref DateTimePicker dateAppointment, ref DateTimePicker dateRetirement, ref TextBox txtMarriageCertificate, ref TextBox txtServiceNo,
+              ref String personalPicLoc, ref String marriageCertificateLoc, ref ComboBox cmbBxSalaryCode, ref ComboBox cmbBxScale, ref ComboBox cmbBxSalaryStep, ref DateTimePicker dateIncrement, ref TextBox txtAddress1Mail, ref TextBox txtCityMail, ref TextBox txtMailZipCode, ref TextBox txtAddress1Home, ref TextBox txtCityHome, ref TextBox txtHomeZipCode,
+              DataGridView tblChildren, DataGridView tblEducation, DataGridView tblOtherPositions, DataGridView tblService, ref PictureBox ptBxPersonalPic, ref PictureBox ptBxMarriageCertificate, ref CheckBox chkBxSame)
+          {
+              tblChildren.DataSource = null;
+              tblEducation.DataSource = null;
+              tblService.DataSource = null;
+              tblOtherPositions.DataSource = null;
+
+              if (tblChildren.Rows.Count != 0)
+                  tblChildren.Rows.Clear();
+              if (tblEducation.Rows.Count != 0)
+                  tblEducation.Rows.Clear();
+              if (tblService.Rows.Count != 0)
+                  tblService.Rows.Clear();
+              if (tblOtherPositions.Rows.Count != 0)
+                  tblOtherPositions.Rows.Clear();
+
+              title = null;
+              Miss.Checked = false;
+              Mr.Checked = false;
+              Mrs.Checked = false;
+
+              txtFullName.Text = "";
+              txtInitials.Text = "";
+              dateDob.Value = DateTime.Now;
+
+              gender = null;
+              male.Checked = false;
+              female.Checked = false;
+
+              txtTelePrivate.Text = "";
+              txtTeleOffice.Text = "";
+              txtEmailPrivate.Text = "";
+              txtEmailOffice.Text = "";
+              txtNIC.Text = "";
+              txtPassport.Text = "";
+              cmbBxDesignation.Text = "";
+              cmbBxFaculty.Text = "";
+              cmbBxDepartment.Text = "";
+              txtUPF.Text = "";
+              dateAppointment.Value = DateTime.Now;
+
+              dateRetirement.Value = DateTime.Now;
+              txtMarriageCertificate.Text = "";
+
+              txtServiceNo.Text = "";
+              personalPicLoc = null;
+              ptBxPersonalPic.Image = null;
+              ptBxMarriageCertificate.Image = null;
+              marriageCertificateLoc = null;
+              cmbBxSalaryStep.Text = "";
+              cmbBxSalaryCode.Text = "";
+              cmbBxScale.Text = "";
+              dateIncrement.Value = DateTime.Now;
+
+              chkBxSame.Checked = false;
+              txtAddress1Mail.Text = "";
+              txtCityMail.Text = "";
+              txtMailZipCode.Text = "";
+              txtAddress1Home.Text = "";
+              txtCityHome.Text = "";
+              txtHomeZipCode.Text = "";
+
+
+          }*/
+
     }
 }

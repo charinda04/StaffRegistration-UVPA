@@ -17,15 +17,16 @@ namespace StaffRegistration
          
          
          Connection conn = new Connection();
+        AddStaff a1 = new AddStaff();
 
         public void fillForm(String ASID,ref RadioButton Mr, ref RadioButton Mrs, ref RadioButton Miss,ref TextBox txtFullName,ref TextBox txtInitials,ref DateTimePicker dateDob,ref RadioButton male,ref RadioButton female,ref TextBox txtTelePrivate,ref TextBox txtTeleOffice, ref TextBox txtEmailPrivate,ref TextBox txtEmailOffice,
-            ref MaskedTextBox txtNIC,ref TextBox txtPassport,ref  ComboBox cmbBxDesignation,ref ComboBox cmbBxFaculty, ref ComboBox cmbBxDepartment, ref TextBox txtUPF,ref  DateTimePicker dateAppointment,ref  DateTimePicker dateRetirement,ref TextBox txtMarriageCertificate, ref TextBox txtServiceNo,
-            ref PictureBox personalPicLoc, ref PictureBox marriageCertificateLoc, ref ComboBox cmbBxSalaryStep, ref DateTimePicker dateIncrement, ref TextBox txtAddress1Mail, ref TextBox txtCityMail, ref TextBox txtMailZipCode, ref TextBox txtAddress1Home,  ref TextBox txtCityHome, ref TextBox txtHomeZipCode)
+            ref TextBox txtNIC,ref TextBox txtPassport,ref  ComboBox cmbBxDesignation,ref ComboBox cmbBxFaculty, ref ComboBox cmbBxDepartment, ref TextBox txtUPF,ref  DateTimePicker dateAppointment,ref  DateTimePicker dateRetirement,ref RadioButton rdoBtnYes,ref RadioButton rdoBtnNo,ref TextBox txtMarriageCertificate, ref TextBox txtServiceNo,
+            ref PictureBox personalPicLoc, ref PictureBox marriageCertificateLoc, ref ComboBox cmbBxSalaryStep,ref ComboBox cmbBxScale,ref ComboBox cmbBxSalaryCode, ref DateTimePicker dateIncrement,ref TextBox stepAmount,ref TextBox etfNo,ref TextBox highestQualification, ref TextBox txtAddress1Mail, ref TextBox txtCityMail, ref TextBox txtMailZipCode, ref TextBox txtAddress1Home,  ref TextBox txtCityHome, ref TextBox txtHomeZipCode)
         {
             try
             {
                 
-                string selectSQL = "SELECT * FROM AcademicStaff where [ASID] = @1;";
+                string selectSQL = "SELECT * FROM `academicstaff` WHERE `NIC` = @1;";
                 
 
                 conn.connOpen();
@@ -39,8 +40,8 @@ namespace StaffRegistration
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    
 
+                   
                     Mr.Checked = reader["Title"].ToString() == "Mr";
                     Mrs.Checked = reader["Title"].ToString() == "Mrs";
                     Miss.Checked = reader["Title"].ToString() == "Miss";
@@ -58,7 +59,10 @@ namespace StaffRegistration
                     txtTeleOffice.Text = reader["Office Contact No"].ToString();
                     txtEmailPrivate.Text = reader["Private Email"].ToString();
                     txtEmailOffice.Text = reader["Office Email"].ToString();
-                    txtNIC.Text = reader["NIC No"].ToString();
+                    int txt = int.Parse(reader["NIC"].ToString().Remove(reader["NIC"].ToString().Length - 1));
+                    
+                    txtNIC.Text = txt.ToString();
+                    //txtNIC.Text = "123456789";
                     txtPassport.Text = reader["Passport No"].ToString();
                     txtUPF.Text = reader["UPF No"].ToString();
                     dateAppointment.Text = reader["Appointment Date"].ToString();
@@ -67,7 +71,7 @@ namespace StaffRegistration
                     
 
 
-                    if (DBNull.Value.Equals(reader.GetValue(17)))
+                    if (DBNull.Value.Equals(reader["Person Pic"]))
                     {
                         personalPicLoc.Image = null;
                         
@@ -76,13 +80,15 @@ namespace StaffRegistration
                     else
                     {
                         
-                        byte[] img = (byte[])reader.GetValue(17);
+                        byte[] img = (byte[])(reader["Person Pic"]);
+                        //if (img == null)
+                            //personalPicLoc.Image = null;
                         MemoryStream ms = new MemoryStream(img);
                         personalPicLoc.Image = Image.FromStream(ms);
 
                     }
 
-                    if (DBNull.Value.Equals(reader.GetValue(16)))
+                    if (DBNull.Value.Equals(reader["Marriage Certificate Pic"]))
                     {
                         marriageCertificateLoc.Image = null;
 
@@ -91,7 +97,7 @@ namespace StaffRegistration
                     else
                     {
 
-                        byte[] img = (byte[])reader.GetValue(16);
+                        byte[] img = (byte[])reader["Marriage Certificate Pic"];
                         MemoryStream ms = new MemoryStream(img);
                         marriageCertificateLoc.Image = Image.FromStream(ms);
 
@@ -99,14 +105,28 @@ namespace StaffRegistration
                     
                     // type
                     txtServiceNo.Text = reader["ServiceNo"].ToString();
+                    //MessageBox.Show("test");
+                    a1.departmentComboBox(cmbBxDepartment);
                     cmbBxDepartment.Text = reader["Department Name"].ToString();
-
+                    a1.selectFaculty(cmbBxFaculty, reader["Department Name"].ToString());
                     cmbBxDesignation.Text = reader["Designation"].ToString();
+                    rdoBtnYes.Checked = reader["Health Insurance"].ToString() == "yes";
+                    rdoBtnNo.Checked = reader["Health Insurance"].ToString() == "no";
+
+                    a1.salaryScaleComboBox(cmbBxScale);
+                    cmbBxScale.Text = reader["Salary Scale"].ToString();
+                    a1.selectSalaryCode(cmbBxSalaryCode, reader["Salary Scale"].ToString());
+                    a1.salaryStepComboBox(cmbBxSalaryStep, reader["Salary Scale"].ToString(), cmbBxSalaryCode.Text);
+
                     cmbBxSalaryStep.Text = reader["Salary Step"].ToString();
+                    
                     dateIncrement.Text = reader["Increment Date"].ToString();
+                    stepAmount.Text = reader["Salary Step Amount"].ToString();
+                    etfNo.Text = reader["ETF no"].ToString();
 
+                    highestQualification.Text = reader["Highest Qualification"].ToString();
 
-                    //MessageBox.Show("good");
+                    //
 
 
                 }
@@ -129,7 +149,7 @@ namespace StaffRegistration
                 conn.connConnection();
 
                 cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT * FROM Address where [ASID] = @1; ", conn.connConnection());
+                cmd = new MySqlCommand("SELECT * FROM `address` WHERE `NIC` = @1; ", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
 
                 reader = cmd.ExecuteReader();
@@ -159,7 +179,7 @@ namespace StaffRegistration
             conn.connConnection();
             MySqlCommand cmd = conn.connConnection().CreateCommand();
             cmd = conn.connConnection().CreateCommand();
-            cmd = new MySqlCommand("SELECT * FROM ChildrenDetail where [ASID] = @1; ", conn.connConnection());
+            cmd = new MySqlCommand("SELECT * FROM `childrendetail` WHERE `NIC` = @1; ", conn.connConnection());
             cmd.Parameters.AddWithValue("@1", ASID);
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -188,7 +208,7 @@ namespace StaffRegistration
             conn.connConnection();
             MySqlCommand cmd = conn.connConnection().CreateCommand();
             cmd = conn.connConnection().CreateCommand();
-            cmd = new MySqlCommand("SELECT * FROM EducationalQulifications where [ASID] = @1; ", conn.connConnection());
+            cmd = new MySqlCommand("SELECT * FROM `educationalqulifications` WHERE `NIC` = @1; ", conn.connConnection());
             cmd.Parameters.AddWithValue("@1", ASID);
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -216,7 +236,7 @@ namespace StaffRegistration
             conn.connConnection();
             MySqlCommand cmd = conn.connConnection().CreateCommand();
             cmd = conn.connConnection().CreateCommand();
-            cmd = new MySqlCommand("SELECT * FROM OtherPositions where [ASID] = @1; ", conn.connConnection());
+            cmd = new MySqlCommand("SELECT * FROM `otherpositions` WHERE `NIC` = @1; ", conn.connConnection());
             cmd.Parameters.AddWithValue("@1", ASID);
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -244,7 +264,7 @@ namespace StaffRegistration
             conn.connConnection();
             MySqlCommand cmd = conn.connConnection().CreateCommand();
             cmd = conn.connConnection().CreateCommand();
-            cmd = new MySqlCommand("SELECT * FROM ServiceRecords where [ASID] = @1; ", conn.connConnection());
+            cmd = new MySqlCommand("SELECT * FROM `servicerecords` WHERE `NIC` = @1; ", conn.connConnection());
             cmd.Parameters.AddWithValue("@1", ASID);
 
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
@@ -257,6 +277,31 @@ namespace StaffRegistration
             tblService.Columns[1].Visible = false;
             tblService.Columns[2].Visible = false;
             tblService.Columns[3].Visible = false;
+            conn.closeConnection();
+
+            cmd.Dispose();
+            dataAdapter.Dispose();
+        }
+        public void fillLeave(String ASID, DataGridView tblLeave)
+        {
+            conn.connOpen();
+            conn.connConnection();
+            MySqlCommand cmd = conn.connConnection().CreateCommand();
+            cmd = conn.connConnection().CreateCommand();
+            cmd = new MySqlCommand("SELECT * FROM `leave` WHERE `NIC` = @1; ", conn.connConnection());
+            cmd.Parameters.AddWithValue("@1", ASID);
+
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
+
+            DataTable table = new DataTable();
+            dataAdapter.Fill(table);
+
+            tblLeave.DataSource = table;
+            tblLeave.Columns[0].Visible = false;
+            tblLeave.Columns[1].Visible = false;
+            tblLeave.Columns[2].Visible = false;
+            tblLeave.Columns[3].Visible = false;
+            tblLeave.Columns[4].Visible = false;
             conn.closeConnection();
 
             cmd.Dispose();
@@ -299,7 +344,7 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
 
                 cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("insert into [EducationalQulifications] values(@1, @2, @3,@4,@5)", conn.connConnection());
+                cmd = new MySqlCommand("insert into EducationalQulifications values(@1, @2, @3,@4,@5)", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", qulification);
                 cmd.Parameters.AddWithValue("@3", university);
@@ -327,7 +372,7 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
 
                 cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("insert into [OtherPositions] values(@1, @2, @3,@4)", conn.connConnection());
+                cmd = new MySqlCommand("insert into OtherPositions values(@1, @2, @3,@4)", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", position);
                 cmd.Parameters.AddWithValue("@3", fromDate);
@@ -354,11 +399,39 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
 
                 cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("insert into [ServiceRecords] values(@1, @2, @3,@4)", conn.connConnection());
+                cmd = new MySqlCommand("insert into ServiceRecords values(@1, @2, @3,@4)", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", position);
                 cmd.Parameters.AddWithValue("@3", fromDate);
                 cmd.Parameters.AddWithValue("@4", toDate);
+
+                cmd.ExecuteNonQuery();
+
+                conn.closeConnection();
+                cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void updateLeave(String ASID, String category,String type, String fromDate, String toDate)
+        {
+            try
+            {
+                conn.connOpen();
+                conn.connConnection();
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("insert into `leave` values(@1, @2, @3,@4,@5)", conn.connConnection());
+                cmd.Parameters.AddWithValue("@1", ASID);
+                cmd.Parameters.AddWithValue("@2", category);
+                cmd.Parameters.AddWithValue("@3", type);
+                cmd.Parameters.AddWithValue("@4", fromDate);
+                cmd.Parameters.AddWithValue("@5", toDate);
 
                 cmd.ExecuteNonQuery();
 
@@ -382,7 +455,7 @@ namespace StaffRegistration
 
                 cmd = conn.connConnection().CreateCommand();
 
-                cmd = new MySqlCommand("DELETE FROM [ChildrenDetail] WHERE [ASID] = @1 AND [Birth Certificate No] = @2;", conn.connConnection());
+                cmd = new MySqlCommand("DELETE FROM ChildrenDetail WHERE `NIC` = @1 AND `Birth Certificate No` = @2;", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", certificateNo);
                 cmd.ExecuteNonQuery();
@@ -405,7 +478,7 @@ namespace StaffRegistration
 
                 cmd = conn.connConnection().CreateCommand();
 
-                cmd = new MySqlCommand("DELETE FROM [EducationalQulifications] WHERE [ASID] = @1 AND [Qulification Obtained] = @2;", conn.connConnection());
+                cmd = new MySqlCommand("DELETE FROM EducationalQulifications WHERE `NIC` = @1 AND `Qulification Obtained` = @2;", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", qulification);
                 cmd.ExecuteNonQuery();
@@ -426,7 +499,7 @@ namespace StaffRegistration
 
                 cmd = conn.connConnection().CreateCommand();
 
-                cmd = new MySqlCommand("DELETE FROM [OtherPositions] WHERE [ASID] = @1 AND [Position] = @2;", conn.connConnection());
+                cmd = new MySqlCommand("DELETE FROM OtherPositions WHERE `NIC` = @1 AND `Position` = @2;", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", position);
                 cmd.ExecuteNonQuery();
@@ -447,7 +520,7 @@ namespace StaffRegistration
 
                 cmd = conn.connConnection().CreateCommand();
 
-                cmd = new MySqlCommand("DELETE FROM [ServiceRecords] WHERE [ASID] = @1 AND [Position] = @2;", conn.connConnection());
+                cmd = new MySqlCommand("DELETE FROM ServiceRecords WHERE `NIC` = @1 AND `Position` = @2;", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", ASID);
                 cmd.Parameters.AddWithValue("@2", position);
                 cmd.ExecuteNonQuery();
@@ -458,12 +531,31 @@ namespace StaffRegistration
             }
         }
 
+        public void deleteFromLeave(String ASID, String leaveCategory)
+        {
+            try
+            {
+                conn.connOpen();
+                conn.connConnection();
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
 
+                cmd = conn.connConnection().CreateCommand();
+
+                cmd = new MySqlCommand("DELETE FROM `leave` WHERE `NIC` = @1 AND `Leave Category` = @2;", conn.connConnection());
+                cmd.Parameters.AddWithValue("@1", ASID);
+                cmd.Parameters.AddWithValue("@2", leaveCategory);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
 
         public void updateAcademicStaff(String ASID,String title, String txtFullName, String txtInitials, String dateDob, String gender, String txtTelePrivate, String txtTeleOffice, String txtEmailPrivate, String txtEmailOffice,
             String txtNIC, String txtPassport, String cmbBxDesignation, String cmbBxFaculty, String cmbBxDepartment, String txtUPF, String dateAppointment, String dateRetirement, String txtMarriageCertificate, String txtServiceNo,
-            String personalPicLoc, String marriageCertificateLoc, String cmbBxSalaryStep, String dateIncrement)
+            String personalPicLoc, String marriageCertificateLoc, String cmbBxSalaryStep, String dateIncrement, String salaryScale, String healthInsurance, String etfNo, String salaryStepAmount, String highestQualification)
         {
             try
             {
@@ -494,14 +586,14 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
                 if (marriageImg == null && personalImg != null)
                 {
-                    cmd = new MySqlCommand("update AcademicStaff set [Title] = @2,[Full Name] = @3,[Name with Initials] = @4,[DOB]=@5 ,[Gender]=@6,[Private Contact No]=@7 ,[Office Contact No]=@8 ,[Private Email]=@9,[Office Email]=@10,[NIC No]=@11,[Passport No]=@12,[UPF No]=@13,[Appointment Date]=@14 ,[Retirement Date]=@15 ,[Marriage Certificate No]=@16 ,[Person Pic]=@18,[Type]=@19 ,[ServiceNo]=@20 ,[Department Name]=@21 ,[Designation]=@22,[Salary Step]=@23,[Increment Date]=@24 where [ASID] = @25;", conn.connConnection());
+                    cmd = new MySqlCommand("update AcademicStaff set `Title` = @2,`Full Name` = @3,`Name with Initials` = @4,`DOB`=@5 ,`Gender`=@6,`Private Contact No`=@7 ,`Office Contact No`=@8 ,`Private Email`=@9,`Office Email`=@10,`NIC`=@11,`Passport No`=@12,`UPF No`=@13,`Appointment Date`=@14 ,`Retirement Date`=@15 ,`Marriage Certificate No`=@16 ,`Person Pic`=@18,`Type`=@19 ,`ServiceNo`=@20 ,`Department Name`=@21 ,`Designation`=@22,`Salary Step`=@23,`Increment Date`=@24,`Salary Scale`=@25,`Health Insurance`=@26,`ETF no`=@27,`Salary Step Amount`=28,`Highest Qualification`=29 where `NIC` = @30;", conn.connConnection());
                     cmd.Parameters.AddWithValue("@18", personalImg);
                     //MessageBox.Show("test");
 
                 }
                 else if (personalImg == null && marriageImg != null)
                 {
-                    cmd = new MySqlCommand("update AcademicStaff set  [Title]=@2,[Full Name]=@3,[Name with Initials]=@4,[DOB]=@5 ,[Gender]=@6,[Private Contact No]=@7 ,[Office Contact No]=@8,[Private Email]=@9,[Office Email]=@10,[NIC No]=@11,[Passport No]=@12,[UPF No]=@13,[Appointment Date]=@14 ,[Retirement Date]=@15 ,[Marriage Certificate No]=@16 ,[Marriage Certificate Pic]=@17,[Type]=@19,[ServiceNo]=@20 ,[Department Name]=@21,[Designation]=@22,[Salary Step]=@23,[Increment Date]=@24 where [ASID] = @25;", conn.connConnection());
+                    cmd = new MySqlCommand("update AcademicStaff set `Title` = @2,`Full Name` = @3,`Name with Initials` = @4,`DOB`=@5 ,`Gender`=@6,`Private Contact No`=@7 ,`Office Contact No`=@8 ,`Private Email`=@9,`Office Email`=@10,`NIC`=@11,`Passport No`=@12,`UPF No`=@13,`Appointment Date`=@14 ,`Retirement Date`=@15 ,`Marriage Certificate No`=@16 ,`Marriage Certificate Pic`=@17,`Type`=@19,`ServiceNo`=@20 ,`Department Name`=@21,`Designation`=@22,`Salary Step`=@23,`Increment Date`=@24,`Salary Scale`=@25,`Health Insurance`=@26,`ETF no`=@27,`Salary Step Amount`=28,`Highest Qualification`=29 where `NIC` = @30;", conn.connConnection());
                     cmd.Parameters.AddWithValue("@17", marriageImg);
 
 
@@ -509,14 +601,14 @@ namespace StaffRegistration
                 else if (marriageImg == null && personalImg == null)
                 {
                     
-                    cmd = new MySqlCommand("update AcademicStaff set [Title]=@2,[Full Name]=@3,[Name with Initials]=@4,[DOB]=@5,[Gender]=@6,[Private Contact No]=@7,[Office Contact No]=@8,[Private Email]=@9,[Office Email]=@10,[NIC No]=@11 ,[Passport No]=@12 ,[UPF No]=@13,[Appointment Date]=@14,[Retirement Date]=@15 ,[Marriage Certificate No]=@16 ,[Type]=@19,[ServiceNo]=@20 ,[Department Name]=@21,[Designation]=@22,[Salary Step]=@23,[Increment Date]=@24 where [ASID] = @25;", conn.connConnection());
+                    cmd = new MySqlCommand("update AcademicStaff set `Title` = @2,`Full Name` = @3,`Name with Initials` = @4,`DOB`=@5 ,`Gender`=@6,`Private Contact No`=@7 ,`Office Contact No`=@8 ,`Private Email`=@9,`Office Email`=@10,`NIC`=@11,`Passport No`=@12,`UPF No`=@13,`Appointment Date`=@14 ,`Retirement Date`=@15 ,`Marriage Certificate No`=@16 ,`Type`=@19,`ServiceNo`=@20 ,`Department Name`=@21,`Designation`=@22,`Salary Step`=@23,`Increment Date`=@24,`Salary Scale`=@25,`Health Insurance`=@26,`ETF no`=@27,`Salary Step Amount`=28,`Highest Qualification`=29 where `NIC` = @30;", conn.connConnection());
 
 
 
                 }
                 else
                 {
-                    cmd = new MySqlCommand("update AcademicStaff set  [Title]=@2,[Full Name]=@3,[Name with Initials]=@4,[DOB]=@5,[Gender]=@6,[Private Contact No]=@7,[Office Contact No]=@8,[Private Email]=@9,[Office Email]=@10,[NIC No]=@11,[Passport No]=@12,[UPF No]=@13,[Appointment Date]=@14,[Retirement Date]=@15,[Marriage Certificate No]=@16,[Marriage Certificate Pic]=@17,[Person Pic]=@18,[Type]=@19,[ServiceNo]=@20,[Department Name]=@21,[Designation]=@22,[Salary Step]=@23,[Increment Date]=@24 where [ASID] = @25;", conn.connConnection());
+                    cmd = new MySqlCommand("update AcademicStaff set `Title` = @2,`Full Name` = @3,`Name with Initials` = @4,`DOB`=@5 ,`Gender`=@6,`Private Contact No`=@7 ,`Office Contact No`=@8 ,`Private Email`=@9,`Office Email`=@10,`NIC`=@11,`Passport No`=@12,`UPF No`=@13,`Appointment Date`=@14 ,`Retirement Date`=@15 ,`Marriage Certificate No`=@16 ,`Marriage Certificate Pic`=@17,`Person Pic`=@18,`Type`=@19,`ServiceNo`=@20 ,`Department Name`=@21,`Designation`=@22,`Salary Step`=@23,`Increment Date`=@24,`Salary Scale`=@25,`Health Insurance`=@26,`ETF no`=@27,`Salary Step Amount`=28,`Highest Qualification`=29 where `NIC` = @30;", conn.connConnection());
                     cmd.Parameters.AddWithValue("@17", marriageImg);
                     cmd.Parameters.AddWithValue("@18", personalImg);
 
@@ -547,7 +639,12 @@ namespace StaffRegistration
                 cmd.Parameters.AddWithValue("@22", cmbBxDesignation);
                 cmd.Parameters.AddWithValue("@23", cmbBxSalaryStep);
                 cmd.Parameters.AddWithValue("@24", dateIncrement);
-                cmd.Parameters.AddWithValue("@25", ASID);
+                cmd.Parameters.AddWithValue("@25", salaryScale);
+                cmd.Parameters.AddWithValue("@26", healthInsurance);
+                cmd.Parameters.AddWithValue("@27", etfNo);
+                cmd.Parameters.AddWithValue("@28", salaryStepAmount);
+                cmd.Parameters.AddWithValue("@29", highestQualification);
+                cmd.Parameters.AddWithValue("@30", ASID);
 
                 cmd.ExecuteNonQuery();
 

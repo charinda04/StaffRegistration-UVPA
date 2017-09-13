@@ -34,7 +34,7 @@ namespace StaffRegistration
                 dataAdapter.Fill(table);
 
                 tblSearch.DataSource = table;
-                tblSearch.Columns[0].Visible = false;
+                //tblSearch.Columns[0].Visible = false;
                 tblSearch.Columns[15].Visible = false;
                 tblSearch.Columns[16].Visible = false;
                 tblSearch.Columns[17].Visible = false;
@@ -51,7 +51,7 @@ namespace StaffRegistration
             }
         }
 
-        public void searchByName(String txtSearchName, DataGridView tblSearch)
+        public void searchByName(String txtSearchName, DataGridView tblSearch, String faculty, String department)
         {
 
             try
@@ -60,8 +60,21 @@ namespace StaffRegistration
                 conn.connConnection();
 
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT * FROM AcademicStaff where [Full Name] like '%'+@1+'%'; ", conn.connConnection());
-                cmd.Parameters.AddWithValue("@1", txtSearchName);
+                if (faculty != "" && department != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where academicstaff.`Department Name` = @1 AND department.`Faculty Name` = @2 And academicstaff.`Department Name` = department.`Department Name` AND  `Full Name` like '%" + txtSearchName + "%'; ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", department);
+                    cmd.Parameters.AddWithValue("@2", faculty);
+                }
+                else if (faculty != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where department.`Faculty Name` =@1 And academicstaff.`Department Name` = department.`Department Name` AND  `Full Name` like '%" + txtSearchName + "%'; ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", faculty);
+                }
+                else
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff` where `Full Name` like '%" + txtSearchName + "%'; ", conn.connConnection());
+                //cmd.Parameters.AddWithValue("@1", txtSearchName);
+                //MessageBox.Show();
 
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -69,7 +82,7 @@ namespace StaffRegistration
                 dataAdapter.Fill(table);
 
                 tblSearch.DataSource = table;
-                tblSearch.Columns[0].Visible = false;
+                //tblSearch.Columns[0].Visible = false;
                 tblSearch.Columns[15].Visible = false;
                 tblSearch.Columns[16].Visible = false;
                 tblSearch.Columns[17].Visible = false;
@@ -87,7 +100,7 @@ namespace StaffRegistration
 
         }
 
-        public void searchByNIC(String txtSearchNIC, DataGridView tblSearch)
+        public void searchByNIC(String txtSearchNIC, DataGridView tblSearch, String faculty, String department)
         {
             try
             {
@@ -95,8 +108,20 @@ namespace StaffRegistration
                 conn.connConnection();
 
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT * FROM AcademicStaff where [NIC No] like '%'+@1+'%'; ", conn.connConnection());
-                cmd.Parameters.AddWithValue("@1", txtSearchNIC);
+                if (faculty != "" && department != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where academicstaff.`Department Name` = @1 AND department.`Faculty Name` = @2 And academicstaff.`Department Name` = department.`Department Name` AND`NIC` like '%" + txtSearchNIC + "%';  ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", department);
+                    cmd.Parameters.AddWithValue("@2", faculty);
+                }
+                else if (faculty != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where department.`Faculty Name` = @1 And academicstaff.`Department Name` = department.`Department Name` AND`NIC` like '%" + txtSearchNIC + "%';  ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", faculty);
+                }
+                else
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff` WHERE `NIC` like '%" + txtSearchNIC + "%'; ", conn.connConnection());
+               // cmd.Parameters.AddWithValue("@1", txtSearchNIC);
 
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -104,7 +129,7 @@ namespace StaffRegistration
                 dataAdapter.Fill(table);
 
                 tblSearch.DataSource = table;
-                tblSearch.Columns[0].Visible = false;
+               // tblSearch.Columns[0].Visible = false;
                 tblSearch.Columns[15].Visible = false;
                 tblSearch.Columns[16].Visible = false;
                 tblSearch.Columns[17].Visible = false;
@@ -121,7 +146,7 @@ namespace StaffRegistration
             }
         }
 
-        public void searchByUPF(String txtSearchUPF, DataGridView tblSearch)
+        public void searchByUPF(String txtSearchUPF, DataGridView tblSearch, String faculty, String department)
         {
             try
             {
@@ -129,8 +154,20 @@ namespace StaffRegistration
                 conn.connConnection();
 
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT * FROM AcademicStaff where [UPF No] like '%'+@1+'%'; ", conn.connConnection());
-                cmd.Parameters.AddWithValue("@1", txtSearchUPF);
+                if (faculty != "" && department != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where academicstaff.`Department Name` = @1 AND department.`Faculty Name` = @2 And academicstaff.`Department Name` = department.`Department Name` AND `UPF No` like '%" + txtSearchUPF + "%'; ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", department);
+                    cmd.Parameters.AddWithValue("@2", faculty);
+                }
+                else if (faculty != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where department.`Faculty Name` = @1 And academicstaff.`Department Name` = department.`Department Name` AND `UPF No` like '%" + txtSearchUPF + "%'; ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", faculty);
+                }
+                else
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff` where `UPF No` like '%" + txtSearchUPF + "%'; ", conn.connConnection());
+                //cmd.Parameters.AddWithValue("@1", txtSearchUPF);
 
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -138,7 +175,7 @@ namespace StaffRegistration
                 dataAdapter.Fill(table);
 
                 tblSearch.DataSource = table;
-                tblSearch.Columns[0].Visible = false;
+               // tblSearch.Columns[0].Visible = false;
                 tblSearch.Columns[15].Visible = false;
                 tblSearch.Columns[16].Visible = false;
                 tblSearch.Columns[17].Visible = false;
@@ -155,7 +192,7 @@ namespace StaffRegistration
             }
         }
 
-        public void searchByPassport(String txtPassportNo, DataGridView tblSearch)
+        public void searchByPassport(String txtPassportNo, DataGridView tblSearch, String faculty, String department)
         {
             try
             {
@@ -163,8 +200,20 @@ namespace StaffRegistration
                 conn.connConnection();
 
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
-                cmd = new MySqlCommand("SELECT * FROM AcademicStaff where [Passport No] like '%'+@1+'%'; ", conn.connConnection());
-                cmd.Parameters.AddWithValue("@1", txtPassportNo);
+                if (faculty != "" && department != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where academicstaff.`Department Name` = @1 AND department.`Faculty Name` = @2 And academicstaff.`Department Name` = department.`Department Name` AND `Passport No` like '%" + txtPassportNo + "%'; ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", department);
+                    cmd.Parameters.AddWithValue("@2", faculty);
+                }
+                else if (faculty != "")
+                {
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff`,`department` where department.`Faculty Name` = @1 And academicstaff.`Department Name` = department.`Department Name` AND `Passport No` like '%" + txtPassportNo + "%'; ", conn.connConnection());
+                    cmd.Parameters.AddWithValue("@1", faculty);
+                }
+                else
+                    cmd = new MySqlCommand("SELECT * FROM `academicstaff` where `Passport No` like '%" + txtPassportNo + "%'; ", conn.connConnection());
+                //cmd.Parameters.AddWithValue("@1", txtPassportNo);
 
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
@@ -172,7 +221,7 @@ namespace StaffRegistration
                 dataAdapter.Fill(table);
 
                 tblSearch.DataSource = table;
-                tblSearch.Columns[0].Visible = false;
+                //tblSearch.Columns[0].Visible = false;
                 tblSearch.Columns[15].Visible = false;
                 tblSearch.Columns[16].Visible = false;
                 tblSearch.Columns[17].Visible = false;

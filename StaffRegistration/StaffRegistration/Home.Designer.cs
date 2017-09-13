@@ -39,6 +39,7 @@
             this.newIncrementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tStpBtnAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -48,12 +49,14 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bttnUpdate = new System.Windows.Forms.Button();
             this.bttnDelete = new System.Windows.Forms.Button();
             this.tblSearch = new System.Windows.Forms.DataGridView();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbBxSearchDepartment = new System.Windows.Forms.ComboBox();
+            this.cmbBxSearchFaculty = new System.Windows.Forms.ComboBox();
             this.label55 = new System.Windows.Forms.Label();
             this.txtPassportNo = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
@@ -88,7 +91,8 @@
             this.leavesToolStripMenuItem,
             this.incrementsToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1357, 24);
@@ -110,6 +114,7 @@
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -157,6 +162,12 @@
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
@@ -168,7 +179,9 @@
             this.toolStripLabel1,
             this.toolStripButton3,
             this.toolStripLabel4,
-            this.toolStripButton4});
+            this.toolStripButton4,
+            this.toolStripButton1,
+            this.toolStripButtonRefresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1357, 40);
@@ -205,6 +218,7 @@
             this.toolStripButton2.Size = new System.Drawing.Size(35, 35);
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.ToolTipText = "Reports";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripLabel2
             // 
@@ -228,6 +242,7 @@
             this.toolStripButton3.Size = new System.Drawing.Size(35, 35);
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.ToolTipText = "Options";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripLabel4
             // 
@@ -246,14 +261,35 @@
             this.toolStripButton4.Size = new System.Drawing.Size(35, 35);
             this.toolStripButton4.Text = "toolStripButton4";
             this.toolStripButton4.ToolTipText = "Alerts";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 37);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButtonRefresh
+            // 
+            this.toolStripButtonRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRefresh.Image")));
+            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
+            this.toolStripButtonRefresh.Size = new System.Drawing.Size(23, 37);
+            this.toolStripButtonRefresh.Text = "toolStripButton5";
+            this.toolStripButtonRefresh.Click += new System.EventHandler(this.toolStripButtonRefresh_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bttnUpdate);
             this.groupBox1.Controls.Add(this.bttnDelete);
             this.groupBox1.Controls.Add(this.tblSearch);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbBxSearchDepartment);
+            this.groupBox1.Controls.Add(this.cmbBxSearchFaculty);
             this.groupBox1.Controls.Add(this.label55);
             this.groupBox1.Controls.Add(this.txtPassportNo);
             this.groupBox1.Controls.Add(this.label53);
@@ -280,6 +316,7 @@
             this.bttnUpdate.TabIndex = 47;
             this.bttnUpdate.Text = "Update";
             this.bttnUpdate.UseVisualStyleBackColor = true;
+            this.bttnUpdate.Click += new System.EventHandler(this.bttnUpdate_Click);
             // 
             // bttnDelete
             // 
@@ -292,6 +329,7 @@
             this.bttnDelete.Text = "Delete";
             this.bttnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bttnDelete.UseVisualStyleBackColor = true;
+            this.bttnDelete.Click += new System.EventHandler(this.bttnDelete_Click);
             // 
             // tblSearch
             // 
@@ -304,21 +342,25 @@
             this.tblSearch.Size = new System.Drawing.Size(1305, 465);
             this.tblSearch.TabIndex = 45;
             // 
-            // comboBox3
+            // cmbBxSearchDepartment
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1101, 69);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(229, 21);
-            this.comboBox3.TabIndex = 44;
+            this.cmbBxSearchDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBxSearchDepartment.FormattingEnabled = true;
+            this.cmbBxSearchDepartment.Location = new System.Drawing.Point(1101, 69);
+            this.cmbBxSearchDepartment.Name = "cmbBxSearchDepartment";
+            this.cmbBxSearchDepartment.Size = new System.Drawing.Size(229, 21);
+            this.cmbBxSearchDepartment.TabIndex = 44;
+            this.cmbBxSearchDepartment.DropDownClosed += new System.EventHandler(this.cmbBxSearchDepartment_DropDownClosed);
             // 
-            // comboBox1
+            // cmbBxSearchFaculty
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1101, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 21);
-            this.comboBox1.TabIndex = 43;
+            this.cmbBxSearchFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBxSearchFaculty.FormattingEnabled = true;
+            this.cmbBxSearchFaculty.Location = new System.Drawing.Point(1101, 42);
+            this.cmbBxSearchFaculty.Name = "cmbBxSearchFaculty";
+            this.cmbBxSearchFaculty.Size = new System.Drawing.Size(229, 21);
+            this.cmbBxSearchFaculty.TabIndex = 43;
+            this.cmbBxSearchFaculty.DropDownClosed += new System.EventHandler(this.cmbBxSearchFaculty_DropDownClosed);
             // 
             // label55
             // 
@@ -336,6 +378,7 @@
             this.txtPassportNo.Name = "txtPassportNo";
             this.txtPassportNo.Size = new System.Drawing.Size(207, 20);
             this.txtPassportNo.TabIndex = 41;
+            this.txtPassportNo.TextChanged += new System.EventHandler(this.txtPassportNo_TextChanged);
             // 
             // label53
             // 
@@ -352,6 +395,7 @@
             this.txtSearchNIC.Name = "txtSearchNIC";
             this.txtSearchNIC.Size = new System.Drawing.Size(207, 20);
             this.txtSearchNIC.TabIndex = 39;
+            this.txtSearchNIC.TextChanged += new System.EventHandler(this.txtSearchNIC_TextChanged);
             // 
             // label54
             // 
@@ -378,6 +422,7 @@
             this.txtSearchUPF.Name = "txtSearchUPF";
             this.txtSearchUPF.Size = new System.Drawing.Size(207, 20);
             this.txtSearchUPF.TabIndex = 35;
+            this.txtSearchUPF.TextChanged += new System.EventHandler(this.txtSearchUPF_TextChanged);
             // 
             // label48
             // 
@@ -394,6 +439,7 @@
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(207, 20);
             this.txtSearchName.TabIndex = 33;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
             // label47
             // 
@@ -520,8 +566,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView tblSearch;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbBxSearchDepartment;
+        private System.Windows.Forms.ComboBox cmbBxSearchFaculty;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TextBox txtPassportNo;
         private System.Windows.Forms.Label label53;
@@ -548,6 +594,9 @@
         private System.Windows.Forms.DataGridView tblAlerts;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAlertView;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRefresh;
     }
 }
 
