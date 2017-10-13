@@ -24,7 +24,7 @@ namespace StaffRegistration
            // try
             {
 
-                MessageBox.Show("0");
+                //MessageBox.Show("0");
 
                 byte[] marriageImg = null;
                 byte[] personalImg = null;
@@ -50,7 +50,7 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
                 if (marriageImg == null && personalImg != null)
                 {
-                    MessageBox.Show("1");
+                   // MessageBox.Show("1");
                     cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`, `Person Pic`, `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`, `Health Insurance`, `ETF no`, `Salary Step Amount`,`Highest Qualification`) values (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@17,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
                     cmd.Parameters.AddWithValue("@17", personalImg);
 
@@ -58,7 +58,7 @@ namespace StaffRegistration
                 }
                 else if (personalImg == null && marriageImg != null)
                 {
-                    MessageBox.Show("2");
+                   // MessageBox.Show("2");
                     cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`, `Marriage Certificate Pic`, `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`, `Health Insurance`, `ETF no`, `Salary Step Amount`,`Highest Qualification`) VALUES (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
                     cmd.Parameters.AddWithValue("@16", marriageImg);
 
@@ -66,7 +66,7 @@ namespace StaffRegistration
                 }
                 else if (marriageImg == null && personalImg == null)
                 {
-                    MessageBox.Show("3");
+                    //MessageBox.Show("3");
                     cmd = new MySqlCommand("INSERT INTO `academicstaff`(`NIC`, `Title`, `Full Name`, `Name with Initials`, `DOB`, `Gender`, `Private Contact No`, `Office Contact No`, `Private Email`, `Office Email`, `Passport No`, `UPF No`, `Appointment Date`, `Retirement Date`, `Marriage Certificate No`,  `Type`, `ServiceNo`, `Department Name`, `Designation`, `Salary Step`, `Increment Date`, `Salary Scale`, `Health Insurance`, `ETF no`, `Salary Step Amount`,`Highest Qualification`) VALUES (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
 
 
@@ -74,7 +74,7 @@ namespace StaffRegistration
                 }
                 else
                 {
-                    MessageBox.Show("4");
+                   // MessageBox.Show("4");
                     cmd = new MySqlCommand("INSERT INTO `academicstaff` VALUES (@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18,@19,@20,@21,@22,@23,@24,@25,@26,@27,@28);", conn.connConnection());
                     cmd.Parameters.AddWithValue("@16", marriageImg);
                     cmd.Parameters.AddWithValue("@17", personalImg);

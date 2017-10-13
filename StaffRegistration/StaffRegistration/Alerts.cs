@@ -1,29 +1,32 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StaffRegistration
 {
     class Alerts
     {
-        /*
+        
          
         Connection conn = new Connection();
 
-        public void tblAlerts(DataGridView tblAlerts)
+        public void tblAlertsIncrement(DataGridView tblAlerts)
         {
             try
             {
                 conn.connOpen();
                 conn.connConnection();
-                String sql = "SELECT [ASID][Title],[Name with Initials],[Increment Date],[Private Contact No],[Office Contact No] ,[Private Email],[Office Email],[NIC No],[Appointment Date],[Retirement Date],[ServiceNo],[AcademicStaff].[Department Name],[Faculty Name],[Designation] from [AcademicStaff],[Department] where [Increment Date] < cast(dateadd(m, 1, getdate())AS DATE) and [Increment Date] > CAST(GETDATE() AS DATE) and [AcademicStaff].[Department Name] = [Department].[Department Name]";
-                SqlCommand cmd = conn.connConnection().CreateCommand();
-                cmd = new SqlCommand( sql, conn.connConnection());
+                String sql = "SELECT `NIC`,`Title`,`Name with Initials`,`Increment Date`,`Private Contact No`,`Office Contact No` ,`Private Email`,`Office Email`,`Appointment Date`,`Retirement Date`,`ServiceNo`,`AcademicStaff`.`Department Name`,`Faculty Name`,`Designation` from `AcademicStaff`,`Department` where `Increment Date` < DATE_ADD(CURDATE(), INTERVAL 1 MONTH) and `Increment Date` > CURDATE() and `AcademicStaff`.`Department Name` = `Department`.`Department Name`";
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand( sql, conn.connConnection());
                 //cmd.Parameters.AddWithValue("@1", txtSearchName);
 
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
@@ -39,8 +42,12 @@ namespace StaffRegistration
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
-         */
+        public void checkNoofAlerts(Label indicator, DataGridView tblAlerts)
+        {
+            indicator.Text = tblAlerts.Rows.Count.ToString();
+        }
+         
     }
 }

@@ -124,6 +124,38 @@ namespace StaffRegistration
             }
         }
 
+        public void loadLeave(DataGridView tblLeave)
+        {
+            try
+            {
+                conn.connOpen();
+                conn.connConnection();
+
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `leavetype`;", conn.connConnection());
+
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
+
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+
+                tblLeave.DataSource = table;
+                tblLeave.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                conn.closeConnection();
+
+               // tblLeave.Columns[1].Visible = false;
+
+                cmd.Dispose();
+                dataAdapter.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void loadFaculty(DataGridView tblFaculty)
         {
             try
@@ -256,6 +288,31 @@ namespace StaffRegistration
             catch (Exception ex)
             {
                 MessageBox.Show("This Designation name already exsits. Please enter a different Designation name");
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void insertLeave(String txtNewLeave)
+        {
+            try
+            {
+                conn.connOpen();
+                conn.connConnection();
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("INSERT INTO `leavetype`(`Leave Type`) VALUES (@1);", conn.connConnection());
+                cmd.Parameters.AddWithValue("@1", txtNewLeave);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("New Leave category successfully added");
+
+                conn.closeConnection();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("This Leave Category already exsits. Please enter a different Leave Category");
                 MessageBox.Show(ex.Message);
             }
         }
@@ -397,6 +454,28 @@ namespace StaffRegistration
                 cmd = conn.connConnection().CreateCommand();
                 cmd = new MySqlCommand("DELETE FROM `designations` WHERE `Designation` = @1;", conn.connConnection());
                 cmd.Parameters.AddWithValue("@1", txtDesignation);
+                cmd.ExecuteNonQuery();
+
+                conn.closeConnection();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void deleteLeave(String txtLeave)
+        {
+            try
+            {
+                conn.connOpen();
+                conn.connConnection();
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("DELETE FROM `leavetype` WHERE `Leave Type` = @1;", conn.connConnection());
+                cmd.Parameters.AddWithValue("@1", txtLeave);
                 cmd.ExecuteNonQuery();
 
                 conn.closeConnection();

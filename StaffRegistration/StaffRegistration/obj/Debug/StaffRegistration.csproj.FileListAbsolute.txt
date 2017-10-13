@@ -38,3 +38,7 @@ C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj
 C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\StaffRegistration.exe
 C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\StaffRegistration.pdb
 C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\mysql.data.dll
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\itextsharp.dll
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\itextsharp.pdfa.dll
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\bin\Debug\itextsharp.xtra.dll
+C:\Users\Charinda\StaffRegistration-UVPA\StaffRegistration\StaffRegistration\obj\Debug\StaffRegistration.Login.resources

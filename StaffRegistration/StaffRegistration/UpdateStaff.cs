@@ -59,8 +59,8 @@ namespace StaffRegistration
                     txtTeleOffice.Text = reader["Office Contact No"].ToString();
                     txtEmailPrivate.Text = reader["Private Email"].ToString();
                     txtEmailOffice.Text = reader["Office Email"].ToString();
-                    int txt = int.Parse(reader["NIC"].ToString().Remove(reader["NIC"].ToString().Length - 1));
-                    
+                    String txt = reader["NIC"].ToString();
+                    //.Remove(reader["NIC"].ToString().Length - 1));
                     txtNIC.Text = txt.ToString();
                     //txtNIC.Text = "123456789";
                     txtPassport.Text = reader["Passport No"].ToString();
@@ -155,15 +155,15 @@ namespace StaffRegistration
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    txtAddress1Mail.Text = reader["Maling Address"].ToString();
-                    txtCityMail.Text = reader["Maling City"].ToString();
-                    txtMailZipCode.Text = reader["Maling ZipCode"].ToString();
+                    txtAddress1Mail.Text = reader["Mailing Address"].ToString();
+                    txtCityMail.Text = reader["Mailing City"].ToString();
+                    txtMailZipCode.Text = reader["Mailing ZipCode"].ToString();
                     txtAddress1Home.Text = reader["Home Address"].ToString();
                     txtCityHome.Text = reader["Home City"].ToString();
                     txtHomeZipCode.Text = reader["Home ZipCode"].ToString();
                 }
                 conn.closeConnection();
-
+                reader.Dispose();
                 cmd.Dispose();
                 dataAdapter.Dispose();
             }
@@ -184,7 +184,7 @@ namespace StaffRegistration
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
             DataTable table = new DataTable();
-            dataAdapter = new MySqlDataAdapter(cmd);
+            //dataAdapter = new MySqlDataAdapter(cmd);
 
             table = new DataTable();
             dataAdapter.Fill(table);

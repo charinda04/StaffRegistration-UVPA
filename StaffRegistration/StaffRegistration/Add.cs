@@ -24,22 +24,30 @@ namespace StaffRegistration
         Boolean tblOldScalePopulated = false;
         String title = null, gender = null;
         String healthInsurance = null;
+        DataGridView tblsearch;
+        DataGridView tblalert;
+        Label indicator;
 
         //public bool updateStatus = false;
 
         AddStaff add = new AddStaff();
         UpdateStaff upstaff = new UpdateStaff();
+        SearchStaff staff = new SearchStaff();
+        Alerts a1 = new Alerts();
 
-        
+        StaffRegistration h = new StaffRegistration();
 
-        public Add(bool updateStatus, String nic, Form home )
+        public Add(bool updateStatus, String nic, StaffRegistration home , DataGridView tblsearch, DataGridView tblalert , Label indicator)
         {
 
             InitializeComponent();
 
             this.updateStatus = updateStatus;
             this.nic = nic;
-           // h1 = home;
+            h = home;
+            this.tblsearch = tblsearch;
+            this.tblalert = tblalert;
+            this.indicator = indicator;
             
         }
 
@@ -620,9 +628,22 @@ namespace StaffRegistration
                     //upstaff.updateOtherPositions(ASID, tblOtherPositions);
 
 
-
+                    staff.fillSearchTable(tblsearch);
+                    a1.tblAlertsIncrement(tblalert);
+                    a1.checkNoofAlerts(indicator, tblalert);
                     MessageBox.Show("record updated");
+                    
                     updateStatus = false;
+
+                    btnNextPanel2.Enabled = false;
+                    btnNextPanel3.Enabled = false;
+                    
+                    txtNIC.Visible = true;
+                    txtNIC.BringToFront();
+
+                    txtNicUpdate.Visible = false;
+                   // MessageBox.Show(updateStatus.ToString());
+                    this.Close();
                     //staff.fillSearchTable(tblSearch);
                     //search.Visible = true;
                     //search.BringToFront();
@@ -639,6 +660,10 @@ namespace StaffRegistration
                     add.addServiceRecords(tblService);
                     add.addOtherPositions(tblOtherPositions);
                     add.addLeave(tblLeave);
+
+                    staff.fillSearchTable(tblsearch);
+                    a1.tblAlertsIncrement(tblalert);
+                    a1.checkNoofAlerts(indicator, tblalert);
                     MessageBox.Show("record saved");
                     
                     this.Close();

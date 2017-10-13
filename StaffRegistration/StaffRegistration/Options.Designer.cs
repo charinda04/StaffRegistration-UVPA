@@ -31,6 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbBxEditField = new System.Windows.Forms.ComboBox();
             this.panelChangeSalaryCode = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtStepAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSalarySteps = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -62,8 +64,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblEditField = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtStepAmount = new System.Windows.Forms.TextBox();
+            this.Leave = new System.Windows.Forms.Panel();
+            this.btnRemoveLeave = new System.Windows.Forms.Button();
+            this.btnAddLeave = new System.Windows.Forms.Button();
+            this.tblLeave = new System.Windows.Forms.DataGridView();
+            this.txtLeave = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panelChangeSalaryCode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblOldScale)).BeginInit();
@@ -73,13 +79,16 @@
             this.panelAddFaculty.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFaculty)).BeginInit();
+            this.Leave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLeave)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbBxEditField);
-            this.groupBox1.Controls.Add(this.panelChangeSalaryCode);
+            this.groupBox1.Controls.Add(this.Leave);
             this.groupBox1.Controls.Add(this.panelAddDesignation);
+            this.groupBox1.Controls.Add(this.panelChangeSalaryCode);
             this.groupBox1.Controls.Add(this.panelAddFaculty);
             this.groupBox1.Controls.Add(this.lblEditField);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
@@ -96,7 +105,8 @@
             this.cmbBxEditField.Items.AddRange(new object[] {
             "Faculty & Department",
             "Designation",
-            "Salary"});
+            "Salary",
+            "Leave Category"});
             this.cmbBxEditField.Location = new System.Drawing.Point(81, 43);
             this.cmbBxEditField.Name = "cmbBxEditField";
             this.cmbBxEditField.Size = new System.Drawing.Size(266, 21);
@@ -124,6 +134,22 @@
             this.panelChangeSalaryCode.Name = "panelChangeSalaryCode";
             this.panelChangeSalaryCode.Size = new System.Drawing.Size(1110, 212);
             this.panelChangeSalaryCode.TabIndex = 38;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(857, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.TabIndex = 68;
+            this.label4.Text = "Salary Step Amount";
+            // 
+            // txtStepAmount
+            // 
+            this.txtStepAmount.Location = new System.Drawing.Point(959, 4);
+            this.txtStepAmount.Name = "txtStepAmount";
+            this.txtStepAmount.Size = new System.Drawing.Size(144, 20);
+            this.txtStepAmount.TabIndex = 67;
             // 
             // label3
             // 
@@ -433,21 +459,66 @@
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
-            // label4
+            // Leave
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(857, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 13);
-            this.label4.TabIndex = 68;
-            this.label4.Text = "Salary Step Amount";
+            this.Leave.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Leave.Controls.Add(this.btnRemoveLeave);
+            this.Leave.Controls.Add(this.btnAddLeave);
+            this.Leave.Controls.Add(this.tblLeave);
+            this.Leave.Controls.Add(this.txtLeave);
+            this.Leave.Controls.Add(this.label5);
+            this.Leave.Location = new System.Drawing.Point(31, 96);
+            this.Leave.Name = "Leave";
+            this.Leave.Size = new System.Drawing.Size(922, 212);
+            this.Leave.TabIndex = 39;
             // 
-            // txtStepAmount
+            // btnRemoveLeave
             // 
-            this.txtStepAmount.Location = new System.Drawing.Point(959, 4);
-            this.txtStepAmount.Name = "txtStepAmount";
-            this.txtStepAmount.Size = new System.Drawing.Size(144, 20);
-            this.txtStepAmount.TabIndex = 67;
+            this.btnRemoveLeave.Location = new System.Drawing.Point(328, 38);
+            this.btnRemoveLeave.Name = "btnRemoveLeave";
+            this.btnRemoveLeave.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveLeave.TabIndex = 48;
+            this.btnRemoveLeave.Text = "Remove";
+            this.btnRemoveLeave.UseVisualStyleBackColor = true;
+            this.btnRemoveLeave.Click += new System.EventHandler(this.btnRemoveLeave_Click);
+            // 
+            // btnAddLeave
+            // 
+            this.btnAddLeave.Location = new System.Drawing.Point(328, 12);
+            this.btnAddLeave.Name = "btnAddLeave";
+            this.btnAddLeave.Size = new System.Drawing.Size(75, 23);
+            this.btnAddLeave.TabIndex = 47;
+            this.btnAddLeave.Text = "Add";
+            this.btnAddLeave.UseVisualStyleBackColor = true;
+            this.btnAddLeave.Click += new System.EventHandler(this.btnAddLeave_Click);
+            // 
+            // tblLeave
+            // 
+            this.tblLeave.AllowUserToAddRows = false;
+            this.tblLeave.AllowUserToDeleteRows = false;
+            this.tblLeave.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblLeave.Location = new System.Drawing.Point(20, 52);
+            this.tblLeave.Name = "tblLeave";
+            this.tblLeave.ReadOnly = true;
+            this.tblLeave.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tblLeave.Size = new System.Drawing.Size(286, 143);
+            this.tblLeave.TabIndex = 46;
+            // 
+            // txtLeave
+            // 
+            this.txtLeave.Location = new System.Drawing.Point(130, 12);
+            this.txtLeave.Name = "txtLeave";
+            this.txtLeave.Size = new System.Drawing.Size(177, 20);
+            this.txtLeave.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Leave Category";
             // 
             // Options
             // 
@@ -472,6 +543,9 @@
             this.panelAddFaculty.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFaculty)).EndInit();
+            this.Leave.ResumeLayout(false);
+            this.Leave.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLeave)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -514,5 +588,11 @@
         private System.Windows.Forms.TextBox txtSalarySteps;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStepAmount;
+        private System.Windows.Forms.Panel Leave;
+        private System.Windows.Forms.Button btnRemoveLeave;
+        private System.Windows.Forms.Button btnAddLeave;
+        private System.Windows.Forms.DataGridView tblLeave;
+        private System.Windows.Forms.TextBox txtLeave;
+        private System.Windows.Forms.Label label5;
     }
 }

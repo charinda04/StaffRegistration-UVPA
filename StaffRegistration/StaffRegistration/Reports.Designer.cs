@@ -28,111 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Salary Scale");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Salary Code");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Maling Address");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Maling City");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Maling ZipCode");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Home Address");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Home City");
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Home ZipCode");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Address", new System.Windows.Forms.TreeNode[] {
-            treeNode50,
-            treeNode51,
-            treeNode52,
-            treeNode53,
-            treeNode54,
-            treeNode55});
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Position");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("From");
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("To");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Other Positions", new System.Windows.Forms.TreeNode[] {
-            treeNode57,
-            treeNode58,
-            treeNode59});
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Position");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("From");
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("To");
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Service Record", new System.Windows.Forms.TreeNode[] {
-            treeNode61,
-            treeNode62,
-            treeNode63});
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Qulification Obtained");
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("University");
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Effective Date");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Grade");
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Educational", new System.Windows.Forms.TreeNode[] {
-            treeNode65,
-            treeNode66,
-            treeNode67,
-            treeNode68});
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Name");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("DOB");
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Birth Certificate No");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Family", new System.Windows.Forms.TreeNode[] {
-            treeNode70,
-            treeNode71,
-            treeNode72});
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Title");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Full Name");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Name with Initials");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("DOB");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Gender");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Private Contact No");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Office Contact No");
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Private Email");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Office Email");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("NIC No");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Passport No");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("UPF No");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Appointment Date");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Retirement Date");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Marriage Certificate No");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("ServiceNo");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Department Name");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Designation");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Salary Step");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Increment Date");
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Personal", new System.Windows.Forms.TreeNode[] {
-            treeNode74,
-            treeNode75,
-            treeNode76,
-            treeNode77,
-            treeNode78,
-            treeNode79,
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84,
-            treeNode85,
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90,
-            treeNode91,
-            treeNode92,
-            treeNode93});
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.trVwDesignation = new System.Windows.Forms.TreeView();
-            this.trVwDepartment = new System.Windows.Forms.TreeView();
-            this.trVwFaculty = new System.Windows.Forms.TreeView();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.trVwAddress = new System.Windows.Forms.TreeView();
-            this.trVwOther = new System.Windows.Forms.TreeView();
-            this.trVwService = new System.Windows.Forms.TreeView();
-            this.trVwEducational = new System.Windows.Forms.TreeView();
-            this.trVwFamily = new System.Windows.Forms.TreeView();
-            this.trVwPersonal = new System.Windows.Forms.TreeView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.chkBxLeave = new System.Windows.Forms.CheckBox();
+            this.chkLtBxLeave = new System.Windows.Forms.CheckedListBox();
+            this.chkBxSalaryCode = new System.Windows.Forms.CheckBox();
+            this.chkBxSalaryScale = new System.Windows.Forms.CheckBox();
+            this.chkLtBxSalaryCode = new System.Windows.Forms.CheckedListBox();
+            this.chkLtBxSalaryScale = new System.Windows.Forms.CheckedListBox();
+            this.chkBxDepartment = new System.Windows.Forms.CheckBox();
+            this.chkBxDesignation = new System.Windows.Forms.CheckBox();
+            this.chkBxFaculty = new System.Windows.Forms.CheckBox();
+            this.chkLtBxLeaveCategory = new System.Windows.Forms.CheckedListBox();
+            this.chkBxLeaveCatergory = new System.Windows.Forms.CheckBox();
+            this.chkLtBxDepartment = new System.Windows.Forms.CheckedListBox();
+            this.chkLtBxFaculty = new System.Windows.Forms.CheckedListBox();
+            this.chkLtBxDesignation = new System.Windows.Forms.CheckedListBox();
+            this.chkBxOtherPositions = new System.Windows.Forms.CheckBox();
+            this.chkLtBxOtherPositions = new System.Windows.Forms.CheckedListBox();
+            this.chkBxServiceRecord = new System.Windows.Forms.CheckBox();
+            this.chkLtBxServiceRecord = new System.Windows.Forms.CheckedListBox();
+            this.chkBxAddress = new System.Windows.Forms.CheckBox();
+            this.chkLtBxAddress = new System.Windows.Forms.CheckedListBox();
+            this.chkBxEducation = new System.Windows.Forms.CheckBox();
+            this.chkLtBxEducation = new System.Windows.Forms.CheckedListBox();
+            this.chkBxFamily = new System.Windows.Forms.CheckBox();
+            this.chkLtBxFamily = new System.Windows.Forms.CheckedListBox();
+            this.chkBxPersonal = new System.Windows.Forms.CheckBox();
+            this.chkLtBxPersonal = new System.Windows.Forms.CheckedListBox();
+            this.btnGeneate = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panelSelect = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.report_view = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnShowExcel = new System.Windows.Forms.Button();
+            this.btnPrintPdf = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.dateReport = new System.Windows.Forms.DateTimePicker();
             this.label58 = new System.Windows.Forms.Label();
             this.txtHeader = new System.Windows.Forms.TextBox();
@@ -140,227 +70,371 @@
             this.tblReport = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.panelSelect.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.report_view.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblReport)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.trVwDesignation);
-            this.groupBox1.Controls.Add(this.trVwDepartment);
-            this.groupBox1.Controls.Add(this.trVwFaculty);
-            this.groupBox1.Controls.Add(this.treeView1);
-            this.groupBox1.Controls.Add(this.trVwAddress);
-            this.groupBox1.Controls.Add(this.trVwOther);
-            this.groupBox1.Controls.Add(this.trVwService);
-            this.groupBox1.Controls.Add(this.trVwEducational);
-            this.groupBox1.Controls.Add(this.trVwFamily);
-            this.groupBox1.Controls.Add(this.trVwPersonal);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.chkBxLeave);
+            this.groupBox1.Controls.Add(this.chkLtBxLeave);
+            this.groupBox1.Controls.Add(this.chkBxSalaryCode);
+            this.groupBox1.Controls.Add(this.chkBxSalaryScale);
+            this.groupBox1.Controls.Add(this.chkLtBxSalaryCode);
+            this.groupBox1.Controls.Add(this.chkLtBxSalaryScale);
+            this.groupBox1.Controls.Add(this.chkBxDepartment);
+            this.groupBox1.Controls.Add(this.chkBxDesignation);
+            this.groupBox1.Controls.Add(this.chkBxFaculty);
+            this.groupBox1.Controls.Add(this.chkLtBxLeaveCategory);
+            this.groupBox1.Controls.Add(this.chkBxLeaveCatergory);
+            this.groupBox1.Controls.Add(this.chkLtBxDepartment);
+            this.groupBox1.Controls.Add(this.chkLtBxFaculty);
+            this.groupBox1.Controls.Add(this.chkLtBxDesignation);
+            this.groupBox1.Controls.Add(this.chkBxOtherPositions);
+            this.groupBox1.Controls.Add(this.chkLtBxOtherPositions);
+            this.groupBox1.Controls.Add(this.chkBxServiceRecord);
+            this.groupBox1.Controls.Add(this.chkLtBxServiceRecord);
+            this.groupBox1.Controls.Add(this.chkBxAddress);
+            this.groupBox1.Controls.Add(this.chkLtBxAddress);
+            this.groupBox1.Controls.Add(this.chkBxEducation);
+            this.groupBox1.Controls.Add(this.chkLtBxEducation);
+            this.groupBox1.Controls.Add(this.chkBxFamily);
+            this.groupBox1.Controls.Add(this.chkLtBxFamily);
+            this.groupBox1.Controls.Add(this.chkBxPersonal);
+            this.groupBox1.Controls.Add(this.chkLtBxPersonal);
+            this.groupBox1.Controls.Add(this.btnGeneate);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1076, 507);
+            this.groupBox1.Size = new System.Drawing.Size(1226, 507);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fields";
             // 
-            // trVwDesignation
+            // chkBxLeave
             // 
-            this.trVwDesignation.Location = new System.Drawing.Point(207, 302);
-            this.trVwDesignation.Name = "trVwDesignation";
-            this.trVwDesignation.Size = new System.Drawing.Size(172, 144);
-            this.trVwDesignation.TabIndex = 118;
+            this.chkBxLeave.AutoSize = true;
+            this.chkBxLeave.Location = new System.Drawing.Point(1048, 26);
+            this.chkBxLeave.Name = "chkBxLeave";
+            this.chkBxLeave.Size = new System.Drawing.Size(56, 17);
+            this.chkBxLeave.TabIndex = 144;
+            this.chkBxLeave.Text = "Leave";
+            this.chkBxLeave.UseVisualStyleBackColor = true;
+            this.chkBxLeave.CheckedChanged += new System.EventHandler(this.chkBxLeave_CheckedChanged);
             // 
-            // trVwDepartment
+            // chkLtBxLeave
             // 
-            this.trVwDepartment.Location = new System.Drawing.Point(789, 233);
-            this.trVwDepartment.Name = "trVwDepartment";
-            this.trVwDepartment.Size = new System.Drawing.Size(172, 213);
-            this.trVwDepartment.TabIndex = 117;
+            this.chkLtBxLeave.CheckOnClick = true;
+            this.chkLtBxLeave.FormattingEnabled = true;
+            this.chkLtBxLeave.Items.AddRange(new object[] {
+            "NIC",
+            "Leave Category",
+            "Leave Type",
+            "From",
+            "TO"});
+            this.chkLtBxLeave.Location = new System.Drawing.Point(1048, 49);
+            this.chkLtBxLeave.Name = "chkLtBxLeave";
+            this.chkLtBxLeave.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxLeave.TabIndex = 143;
             // 
-            // trVwFaculty
+            // chkBxSalaryCode
             // 
-            this.trVwFaculty.Location = new System.Drawing.Point(593, 233);
-            this.trVwFaculty.Name = "trVwFaculty";
-            this.trVwFaculty.Size = new System.Drawing.Size(172, 213);
-            this.trVwFaculty.TabIndex = 116;
+            this.chkBxSalaryCode.AutoSize = true;
+            this.chkBxSalaryCode.Location = new System.Drawing.Point(874, 251);
+            this.chkBxSalaryCode.Name = "chkBxSalaryCode";
+            this.chkBxSalaryCode.Size = new System.Drawing.Size(83, 17);
+            this.chkBxSalaryCode.TabIndex = 142;
+            this.chkBxSalaryCode.Text = "Salary Code";
+            this.chkBxSalaryCode.UseVisualStyleBackColor = true;
+            this.chkBxSalaryCode.CheckedChanged += new System.EventHandler(this.chkBxSalaryCode_CheckedChanged);
             // 
-            // treeView1
+            // chkBxSalaryScale
             // 
-            this.treeView1.Location = new System.Drawing.Point(207, 233);
-            this.treeView1.Name = "treeView1";
-            treeNode48.Name = "Salary Scale";
-            treeNode48.Text = "Salary Scale";
-            treeNode49.Name = "Salary Code";
-            treeNode49.Text = "Salary Code";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode48,
-            treeNode49});
-            this.treeView1.Size = new System.Drawing.Size(172, 56);
-            this.treeView1.TabIndex = 115;
+            this.chkBxSalaryScale.AutoSize = true;
+            this.chkBxSalaryScale.Location = new System.Drawing.Point(700, 251);
+            this.chkBxSalaryScale.Name = "chkBxSalaryScale";
+            this.chkBxSalaryScale.Size = new System.Drawing.Size(85, 17);
+            this.chkBxSalaryScale.TabIndex = 141;
+            this.chkBxSalaryScale.Text = "Salary Scale";
+            this.chkBxSalaryScale.UseVisualStyleBackColor = true;
+            this.chkBxSalaryScale.CheckedChanged += new System.EventHandler(this.chkBxSalaryScale_CheckedChanged);
             // 
-            // trVwAddress
+            // chkLtBxSalaryCode
             // 
-            this.trVwAddress.CheckBoxes = true;
-            this.trVwAddress.Location = new System.Drawing.Point(593, 72);
-            this.trVwAddress.Name = "trVwAddress";
-            treeNode50.Name = "Maling Address";
-            treeNode50.Text = "Maling Address";
-            treeNode51.Name = "Maling City";
-            treeNode51.Text = "Maling City";
-            treeNode52.Name = "Maling ZipCode";
-            treeNode52.Text = "Maling ZipCode";
-            treeNode53.Name = "Home Address";
-            treeNode53.Text = "Home Address";
-            treeNode54.Name = "Home City";
-            treeNode54.Text = "Home City";
-            treeNode55.Name = "Home ZipCode";
-            treeNode55.Text = "Home ZipCode";
-            treeNode56.Name = "Address";
-            treeNode56.Text = "Address";
-            this.trVwAddress.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode56});
-            this.trVwAddress.Size = new System.Drawing.Size(172, 134);
-            this.trVwAddress.TabIndex = 114;
-            this.trVwAddress.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trVwAddress_AfterSelect);
+            this.chkLtBxSalaryCode.CheckOnClick = true;
+            this.chkLtBxSalaryCode.FormattingEnabled = true;
+            this.chkLtBxSalaryCode.Location = new System.Drawing.Point(874, 274);
+            this.chkLtBxSalaryCode.Name = "chkLtBxSalaryCode";
+            this.chkLtBxSalaryCode.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxSalaryCode.TabIndex = 140;
             // 
-            // trVwOther
+            // chkLtBxSalaryScale
             // 
-            this.trVwOther.CheckBoxes = true;
-            this.trVwOther.Location = new System.Drawing.Point(398, 233);
-            this.trVwOther.Name = "trVwOther";
-            treeNode57.Name = "Node1";
-            treeNode57.Text = "Position";
-            treeNode58.Name = "Node2";
-            treeNode58.Text = "From";
-            treeNode59.Name = "Node3";
-            treeNode59.Text = "To";
-            treeNode60.Name = "Node0";
-            treeNode60.Text = "Other Positions";
-            this.trVwOther.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode60});
-            this.trVwOther.Size = new System.Drawing.Size(172, 213);
-            this.trVwOther.TabIndex = 113;
+            this.chkLtBxSalaryScale.CheckOnClick = true;
+            this.chkLtBxSalaryScale.FormattingEnabled = true;
+            this.chkLtBxSalaryScale.Location = new System.Drawing.Point(700, 274);
+            this.chkLtBxSalaryScale.Name = "chkLtBxSalaryScale";
+            this.chkLtBxSalaryScale.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxSalaryScale.TabIndex = 139;
             // 
-            // trVwService
+            // chkBxDepartment
             // 
-            this.trVwService.CheckBoxes = true;
-            this.trVwService.Location = new System.Drawing.Point(789, 72);
-            this.trVwService.Name = "trVwService";
-            treeNode61.Name = "Node1";
-            treeNode61.Text = "Position";
-            treeNode62.Name = "Node2";
-            treeNode62.Text = "From";
-            treeNode63.Name = "Node3";
-            treeNode63.Text = "To";
-            treeNode64.Name = "Node0";
-            treeNode64.Text = "Service Record";
-            this.trVwService.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode64});
-            this.trVwService.Size = new System.Drawing.Size(172, 134);
-            this.trVwService.TabIndex = 112;
+            this.chkBxDepartment.AutoSize = true;
+            this.chkBxDepartment.Location = new System.Drawing.Point(528, 251);
+            this.chkBxDepartment.Name = "chkBxDepartment";
+            this.chkBxDepartment.Size = new System.Drawing.Size(81, 17);
+            this.chkBxDepartment.TabIndex = 138;
+            this.chkBxDepartment.Text = "Department";
+            this.chkBxDepartment.UseVisualStyleBackColor = true;
+            this.chkBxDepartment.CheckedChanged += new System.EventHandler(this.chkBxDepartment_CheckedChanged);
             // 
-            // trVwEducational
+            // chkBxDesignation
             // 
-            this.trVwEducational.CheckBoxes = true;
-            this.trVwEducational.Location = new System.Drawing.Point(398, 72);
-            this.trVwEducational.Name = "trVwEducational";
-            treeNode65.Name = "Node1";
-            treeNode65.Text = "Qulification Obtained";
-            treeNode66.Name = "Node2";
-            treeNode66.Text = "University";
-            treeNode67.Name = "Node3";
-            treeNode67.Text = "Effective Date";
-            treeNode68.Name = "Node4";
-            treeNode68.Text = "Grade";
-            treeNode69.Name = "Node0";
-            treeNode69.Text = "Educational";
-            this.trVwEducational.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode69});
-            this.trVwEducational.Size = new System.Drawing.Size(172, 134);
-            this.trVwEducational.TabIndex = 111;
+            this.chkBxDesignation.AutoSize = true;
+            this.chkBxDesignation.Location = new System.Drawing.Point(356, 251);
+            this.chkBxDesignation.Name = "chkBxDesignation";
+            this.chkBxDesignation.Size = new System.Drawing.Size(82, 17);
+            this.chkBxDesignation.TabIndex = 137;
+            this.chkBxDesignation.Text = "Designation";
+            this.chkBxDesignation.UseVisualStyleBackColor = true;
+            this.chkBxDesignation.CheckedChanged += new System.EventHandler(this.chkBxDesignation_CheckedChanged);
             // 
-            // trVwFamily
+            // chkBxFaculty
             // 
-            this.trVwFamily.CheckBoxes = true;
-            this.trVwFamily.Location = new System.Drawing.Point(207, 72);
-            this.trVwFamily.Name = "trVwFamily";
-            treeNode70.Name = "Node1";
-            treeNode70.Text = "Name";
-            treeNode71.Name = "Node2";
-            treeNode71.Text = "DOB";
-            treeNode72.Name = "Node3";
-            treeNode72.Text = "Birth Certificate No";
-            treeNode73.Name = "Node0";
-            treeNode73.Text = "Family";
-            this.trVwFamily.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode73});
-            this.trVwFamily.Size = new System.Drawing.Size(172, 134);
-            this.trVwFamily.TabIndex = 110;
+            this.chkBxFaculty.AutoSize = true;
+            this.chkBxFaculty.Location = new System.Drawing.Point(186, 251);
+            this.chkBxFaculty.Name = "chkBxFaculty";
+            this.chkBxFaculty.Size = new System.Drawing.Size(60, 17);
+            this.chkBxFaculty.TabIndex = 136;
+            this.chkBxFaculty.Text = "Faculty";
+            this.chkBxFaculty.UseVisualStyleBackColor = true;
+            this.chkBxFaculty.CheckedChanged += new System.EventHandler(this.chkBxFaculty_CheckedChanged);
             // 
-            // trVwPersonal
+            // chkLtBxLeaveCategory
             // 
-            this.trVwPersonal.CheckBoxes = true;
-            this.trVwPersonal.Location = new System.Drawing.Point(15, 72);
-            this.trVwPersonal.Name = "trVwPersonal";
-            treeNode74.Name = "Title";
-            treeNode74.Text = "Title";
-            treeNode75.Name = "Node3";
-            treeNode75.Text = "Full Name";
-            treeNode76.Name = "Name with Initials";
-            treeNode76.Text = "Name with Initials";
-            treeNode77.Name = "DOB";
-            treeNode77.Text = "DOB";
-            treeNode78.Name = "Gender";
-            treeNode78.Text = "Gender";
-            treeNode79.Name = "Private Contact No";
-            treeNode79.Text = "Private Contact No";
-            treeNode80.Name = "Office Contact No";
-            treeNode80.Text = "Office Contact No";
-            treeNode81.Name = "Private Email";
-            treeNode81.Text = "Private Email";
-            treeNode82.Name = "Office Email";
-            treeNode82.Text = "Office Email";
-            treeNode83.Name = "NIC No";
-            treeNode83.Text = "NIC No";
-            treeNode84.Name = "Passport No";
-            treeNode84.Text = "Passport No";
-            treeNode85.Name = "UPF No";
-            treeNode85.Text = "UPF No";
-            treeNode86.Name = "Appointment Date";
-            treeNode86.Text = "Appointment Date";
-            treeNode87.Name = "Retirement Date";
-            treeNode87.Text = "Retirement Date";
-            treeNode88.Name = "Marriage Certificate No";
-            treeNode88.Text = "Marriage Certificate No";
-            treeNode89.Name = "ServiceNo";
-            treeNode89.Text = "ServiceNo";
-            treeNode90.Name = "Department Name";
-            treeNode90.Text = "Department Name";
-            treeNode91.Name = "Designation";
-            treeNode91.Text = "Designation";
-            treeNode92.Name = "Salary Step";
-            treeNode92.Text = "Salary Step";
-            treeNode93.Name = "Increment Date";
-            treeNode93.Text = "Increment Date";
-            treeNode94.Name = "Personal";
-            treeNode94.Text = "Personal";
-            this.trVwPersonal.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode94});
-            this.trVwPersonal.Size = new System.Drawing.Size(172, 374);
-            this.trVwPersonal.TabIndex = 109;
-            this.trVwPersonal.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.trVwPersonal_AfterCheck);
+            this.chkLtBxLeaveCategory.CheckOnClick = true;
+            this.chkLtBxLeaveCategory.FormattingEnabled = true;
+            this.chkLtBxLeaveCategory.Items.AddRange(new object[] {
+            ""});
+            this.chkLtBxLeaveCategory.Location = new System.Drawing.Point(15, 274);
+            this.chkLtBxLeaveCategory.Name = "chkLtBxLeaveCategory";
+            this.chkLtBxLeaveCategory.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxLeaveCategory.TabIndex = 135;
             // 
-            // button1
+            // chkBxLeaveCatergory
             // 
-            this.button1.Location = new System.Drawing.Point(816, 468);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 108;
-            this.button1.Text = "Generate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.chkBxLeaveCatergory.AutoSize = true;
+            this.chkBxLeaveCatergory.Location = new System.Drawing.Point(15, 251);
+            this.chkBxLeaveCatergory.Name = "chkBxLeaveCatergory";
+            this.chkBxLeaveCatergory.Size = new System.Drawing.Size(101, 17);
+            this.chkBxLeaveCatergory.TabIndex = 134;
+            this.chkBxLeaveCatergory.Text = "Leave Category";
+            this.chkBxLeaveCatergory.UseVisualStyleBackColor = true;
+            this.chkBxLeaveCatergory.CheckedChanged += new System.EventHandler(this.chkBxLeaveCatergory_CheckedChanged);
+            // 
+            // chkLtBxDepartment
+            // 
+            this.chkLtBxDepartment.CheckOnClick = true;
+            this.chkLtBxDepartment.FormattingEnabled = true;
+            this.chkLtBxDepartment.Location = new System.Drawing.Point(528, 274);
+            this.chkLtBxDepartment.Name = "chkLtBxDepartment";
+            this.chkLtBxDepartment.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxDepartment.TabIndex = 133;
+            // 
+            // chkLtBxFaculty
+            // 
+            this.chkLtBxFaculty.CheckOnClick = true;
+            this.chkLtBxFaculty.FormattingEnabled = true;
+            this.chkLtBxFaculty.Location = new System.Drawing.Point(186, 274);
+            this.chkLtBxFaculty.Name = "chkLtBxFaculty";
+            this.chkLtBxFaculty.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxFaculty.TabIndex = 132;
+            // 
+            // chkLtBxDesignation
+            // 
+            this.chkLtBxDesignation.CheckOnClick = true;
+            this.chkLtBxDesignation.FormattingEnabled = true;
+            this.chkLtBxDesignation.Location = new System.Drawing.Point(356, 274);
+            this.chkLtBxDesignation.Name = "chkLtBxDesignation";
+            this.chkLtBxDesignation.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxDesignation.TabIndex = 131;
+            this.chkLtBxDesignation.SelectedIndexChanged += new System.EventHandler(this.chkLtBxDesignation_SelectedIndexChanged);
+            // 
+            // chkBxOtherPositions
+            // 
+            this.chkBxOtherPositions.AutoSize = true;
+            this.chkBxOtherPositions.Location = new System.Drawing.Point(874, 26);
+            this.chkBxOtherPositions.Name = "chkBxOtherPositions";
+            this.chkBxOtherPositions.Size = new System.Drawing.Size(97, 17);
+            this.chkBxOtherPositions.TabIndex = 130;
+            this.chkBxOtherPositions.Text = "Other Positions";
+            this.chkBxOtherPositions.UseVisualStyleBackColor = true;
+            this.chkBxOtherPositions.CheckedChanged += new System.EventHandler(this.chkBxOtherPositions_CheckedChanged);
+            // 
+            // chkLtBxOtherPositions
+            // 
+            this.chkLtBxOtherPositions.CheckOnClick = true;
+            this.chkLtBxOtherPositions.FormattingEnabled = true;
+            this.chkLtBxOtherPositions.Items.AddRange(new object[] {
+            "Position",
+            "From",
+            "To"});
+            this.chkLtBxOtherPositions.Location = new System.Drawing.Point(874, 49);
+            this.chkLtBxOtherPositions.Name = "chkLtBxOtherPositions";
+            this.chkLtBxOtherPositions.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxOtherPositions.TabIndex = 129;
+            // 
+            // chkBxServiceRecord
+            // 
+            this.chkBxServiceRecord.AutoSize = true;
+            this.chkBxServiceRecord.Location = new System.Drawing.Point(700, 26);
+            this.chkBxServiceRecord.Name = "chkBxServiceRecord";
+            this.chkBxServiceRecord.Size = new System.Drawing.Size(100, 17);
+            this.chkBxServiceRecord.TabIndex = 128;
+            this.chkBxServiceRecord.Text = "Service Record";
+            this.chkBxServiceRecord.UseVisualStyleBackColor = true;
+            this.chkBxServiceRecord.CheckedChanged += new System.EventHandler(this.chkBxServiceRecord_CheckedChanged);
+            // 
+            // chkLtBxServiceRecord
+            // 
+            this.chkLtBxServiceRecord.CheckOnClick = true;
+            this.chkLtBxServiceRecord.FormattingEnabled = true;
+            this.chkLtBxServiceRecord.Items.AddRange(new object[] {
+            "Position",
+            "From",
+            "To"});
+            this.chkLtBxServiceRecord.Location = new System.Drawing.Point(700, 49);
+            this.chkLtBxServiceRecord.Name = "chkLtBxServiceRecord";
+            this.chkLtBxServiceRecord.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxServiceRecord.TabIndex = 127;
+            // 
+            // chkBxAddress
+            // 
+            this.chkBxAddress.AutoSize = true;
+            this.chkBxAddress.Location = new System.Drawing.Point(528, 26);
+            this.chkBxAddress.Name = "chkBxAddress";
+            this.chkBxAddress.Size = new System.Drawing.Size(64, 17);
+            this.chkBxAddress.TabIndex = 126;
+            this.chkBxAddress.Text = "Address";
+            this.chkBxAddress.UseVisualStyleBackColor = true;
+            this.chkBxAddress.CheckedChanged += new System.EventHandler(this.chkBxAddress_CheckedChanged);
+            // 
+            // chkLtBxAddress
+            // 
+            this.chkLtBxAddress.CheckOnClick = true;
+            this.chkLtBxAddress.FormattingEnabled = true;
+            this.chkLtBxAddress.Items.AddRange(new object[] {
+            "Mailing Address",
+            "Mailing City",
+            "Mailing ZipCode",
+            "Home Address",
+            "Home City",
+            "Home ZipCode"});
+            this.chkLtBxAddress.Location = new System.Drawing.Point(528, 49);
+            this.chkLtBxAddress.Name = "chkLtBxAddress";
+            this.chkLtBxAddress.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxAddress.TabIndex = 125;
+            // 
+            // chkBxEducation
+            // 
+            this.chkBxEducation.AutoSize = true;
+            this.chkBxEducation.Location = new System.Drawing.Point(356, 26);
+            this.chkBxEducation.Name = "chkBxEducation";
+            this.chkBxEducation.Size = new System.Drawing.Size(74, 17);
+            this.chkBxEducation.TabIndex = 124;
+            this.chkBxEducation.Text = "Education";
+            this.chkBxEducation.UseVisualStyleBackColor = true;
+            this.chkBxEducation.CheckedChanged += new System.EventHandler(this.chkBxEducation_CheckedChanged);
+            // 
+            // chkLtBxEducation
+            // 
+            this.chkLtBxEducation.CheckOnClick = true;
+            this.chkLtBxEducation.FormattingEnabled = true;
+            this.chkLtBxEducation.Items.AddRange(new object[] {
+            "Qulification Obtained",
+            "University",
+            "Effective Date",
+            "Grade"});
+            this.chkLtBxEducation.Location = new System.Drawing.Point(356, 49);
+            this.chkLtBxEducation.Name = "chkLtBxEducation";
+            this.chkLtBxEducation.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxEducation.TabIndex = 123;
+            // 
+            // chkBxFamily
+            // 
+            this.chkBxFamily.AutoSize = true;
+            this.chkBxFamily.Location = new System.Drawing.Point(186, 26);
+            this.chkBxFamily.Name = "chkBxFamily";
+            this.chkBxFamily.Size = new System.Drawing.Size(55, 17);
+            this.chkBxFamily.TabIndex = 122;
+            this.chkBxFamily.Text = "Family";
+            this.chkBxFamily.UseVisualStyleBackColor = true;
+            this.chkBxFamily.CheckedChanged += new System.EventHandler(this.chkBxFamily_CheckedChanged);
+            // 
+            // chkLtBxFamily
+            // 
+            this.chkLtBxFamily.CheckOnClick = true;
+            this.chkLtBxFamily.FormattingEnabled = true;
+            this.chkLtBxFamily.Items.AddRange(new object[] {
+            "Name",
+            "DOB",
+            "Birth Certificate No"});
+            this.chkLtBxFamily.Location = new System.Drawing.Point(186, 49);
+            this.chkLtBxFamily.Name = "chkLtBxFamily";
+            this.chkLtBxFamily.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxFamily.TabIndex = 121;
+            // 
+            // chkBxPersonal
+            // 
+            this.chkBxPersonal.AutoSize = true;
+            this.chkBxPersonal.Location = new System.Drawing.Point(15, 26);
+            this.chkBxPersonal.Name = "chkBxPersonal";
+            this.chkBxPersonal.Size = new System.Drawing.Size(67, 17);
+            this.chkBxPersonal.TabIndex = 120;
+            this.chkBxPersonal.Text = "Personal";
+            this.chkBxPersonal.UseVisualStyleBackColor = true;
+            this.chkBxPersonal.CheckedChanged += new System.EventHandler(this.chkBxPersonal_CheckedChanged);
+            // 
+            // chkLtBxPersonal
+            // 
+            this.chkLtBxPersonal.CheckOnClick = true;
+            this.chkLtBxPersonal.FormattingEnabled = true;
+            this.chkLtBxPersonal.Items.AddRange(new object[] {
+            "Title",
+            "Full Name",
+            "Name with Initials",
+            "DOB",
+            "Gender",
+            "Private Contact No",
+            "Office Contact No",
+            "Private Email",
+            "Office Email",
+            "NIC NO",
+            "Passport No",
+            "UPF No",
+            "Apppointment Date",
+            "Retirement Date",
+            "Marriage Certificate No",
+            "Service No",
+            "Department Name",
+            "Designation",
+            "Salary Step",
+            "Increment Date"});
+            this.chkLtBxPersonal.Location = new System.Drawing.Point(15, 49);
+            this.chkLtBxPersonal.Name = "chkLtBxPersonal";
+            this.chkLtBxPersonal.Size = new System.Drawing.Size(155, 184);
+            this.chkLtBxPersonal.TabIndex = 119;
+            // 
+            // btnGeneate
+            // 
+            this.btnGeneate.Location = new System.Drawing.Point(816, 468);
+            this.btnGeneate.Name = "btnGeneate";
+            this.btnGeneate.Size = new System.Drawing.Size(119, 23);
+            this.btnGeneate.TabIndex = 108;
+            this.btnGeneate.Text = "Generate";
+            this.btnGeneate.UseVisualStyleBackColor = true;
+            this.btnGeneate.Click += new System.EventHandler(this.btnGeneate_Click);
             // 
             // button6
             // 
@@ -377,24 +451,24 @@
             this.panelSelect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSelect.Location = new System.Drawing.Point(0, 0);
             this.panelSelect.Name = "panelSelect";
-            this.panelSelect.Size = new System.Drawing.Size(1100, 531);
+            this.panelSelect.Size = new System.Drawing.Size(1250, 531);
             this.panelSelect.TabIndex = 97;
             // 
-            // panel1
+            // report_view
             // 
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 531);
-            this.panel1.TabIndex = 98;
-            this.panel1.Visible = false;
+            this.report_view.Controls.Add(this.groupBox2);
+            this.report_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.report_view.Location = new System.Drawing.Point(0, 0);
+            this.report_view.Name = "report_view";
+            this.report_view.Size = new System.Drawing.Size(1250, 531);
+            this.report_view.TabIndex = 98;
+            this.report_view.Visible = false;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnShowExcel);
+            this.groupBox2.Controls.Add(this.btnPrintPdf);
+            this.groupBox2.Controls.Add(this.btnClose);
             this.groupBox2.Controls.Add(this.dateReport);
             this.groupBox2.Controls.Add(this.label58);
             this.groupBox2.Controls.Add(this.txtHeader);
@@ -408,32 +482,35 @@
             this.groupBox2.Text = "Print Preview";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // button5
+            // btnShowExcel
             // 
-            this.button5.Location = new System.Drawing.Point(691, 478);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(119, 23);
-            this.button5.TabIndex = 108;
-            this.button5.Text = "Show Excel File";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnShowExcel.Location = new System.Drawing.Point(691, 478);
+            this.btnShowExcel.Name = "btnShowExcel";
+            this.btnShowExcel.Size = new System.Drawing.Size(119, 23);
+            this.btnShowExcel.TabIndex = 108;
+            this.btnShowExcel.Text = "Show Excel File";
+            this.btnShowExcel.UseVisualStyleBackColor = true;
+            this.btnShowExcel.Click += new System.EventHandler(this.btnShowExcel_Click);
             // 
-            // button4
+            // btnPrintPdf
             // 
-            this.button4.Location = new System.Drawing.Point(816, 478);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 23);
-            this.button4.TabIndex = 107;
-            this.button4.Text = "Print PDF";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPrintPdf.Location = new System.Drawing.Point(816, 478);
+            this.btnPrintPdf.Name = "btnPrintPdf";
+            this.btnPrintPdf.Size = new System.Drawing.Size(119, 23);
+            this.btnPrintPdf.TabIndex = 107;
+            this.btnPrintPdf.Text = "Print PDF";
+            this.btnPrintPdf.UseVisualStyleBackColor = true;
+            this.btnPrintPdf.Click += new System.EventHandler(this.btnPrintPdf_Click);
             // 
-            // button3
+            // btnClose
             // 
-            this.button3.Location = new System.Drawing.Point(941, 478);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 23);
-            this.button3.TabIndex = 106;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnClose.Location = new System.Drawing.Point(941, 478);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(119, 23);
+            this.btnClose.TabIndex = 106;
+            this.btnClose.Text = "Cancel";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dateReport
             // 
@@ -464,9 +541,9 @@
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(12, 380);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(98, 13);
+            this.label52.Size = new System.Drawing.Size(104, 13);
             this.label52.TabIndex = 102;
-            this.label52.Text = "Headr to be printed";
+            this.label52.Text = "Header to be printed";
             // 
             // tblReport
             // 
@@ -484,16 +561,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 531);
+            this.ClientSize = new System.Drawing.Size(1250, 531);
             this.Controls.Add(this.panelSelect);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.report_view);
             this.Name = "Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panelSelect.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.report_view.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblReport)).EndInit();
@@ -505,27 +583,43 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panelSelect;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel report_view;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnShowExcel;
+        private System.Windows.Forms.Button btnPrintPdf;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DateTimePicker dateReport;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TextBox txtHeader;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.DataGridView tblReport;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGeneate;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TreeView trVwPersonal;
-        private System.Windows.Forms.TreeView trVwService;
-        private System.Windows.Forms.TreeView trVwEducational;
-        private System.Windows.Forms.TreeView trVwFamily;
-        private System.Windows.Forms.TreeView trVwOther;
-        private System.Windows.Forms.TreeView trVwFaculty;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TreeView trVwAddress;
-        private System.Windows.Forms.TreeView trVwDesignation;
-        private System.Windows.Forms.TreeView trVwDepartment;
+        private System.Windows.Forms.CheckBox chkBxDepartment;
+        private System.Windows.Forms.CheckBox chkBxDesignation;
+        private System.Windows.Forms.CheckBox chkBxFaculty;
+        private System.Windows.Forms.CheckedListBox chkLtBxLeaveCategory;
+        private System.Windows.Forms.CheckBox chkBxLeaveCatergory;
+        private System.Windows.Forms.CheckedListBox chkLtBxDepartment;
+        private System.Windows.Forms.CheckedListBox chkLtBxFaculty;
+        private System.Windows.Forms.CheckedListBox chkLtBxDesignation;
+        private System.Windows.Forms.CheckBox chkBxOtherPositions;
+        private System.Windows.Forms.CheckedListBox chkLtBxOtherPositions;
+        private System.Windows.Forms.CheckBox chkBxServiceRecord;
+        private System.Windows.Forms.CheckedListBox chkLtBxServiceRecord;
+        private System.Windows.Forms.CheckBox chkBxAddress;
+        private System.Windows.Forms.CheckedListBox chkLtBxAddress;
+        private System.Windows.Forms.CheckBox chkBxEducation;
+        private System.Windows.Forms.CheckedListBox chkLtBxEducation;
+        private System.Windows.Forms.CheckBox chkBxFamily;
+        private System.Windows.Forms.CheckedListBox chkLtBxFamily;
+        private System.Windows.Forms.CheckBox chkBxPersonal;
+        private System.Windows.Forms.CheckedListBox chkLtBxPersonal;
+        private System.Windows.Forms.CheckedListBox chkLtBxSalaryScale;
+        private System.Windows.Forms.CheckedListBox chkLtBxSalaryCode;
+        private System.Windows.Forms.CheckBox chkBxSalaryCode;
+        private System.Windows.Forms.CheckBox chkBxSalaryScale;
+        private System.Windows.Forms.CheckedListBox chkLtBxLeave;
+        private System.Windows.Forms.CheckBox chkBxLeave;
     }
 }

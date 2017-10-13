@@ -1,6 +1,11 @@
-﻿using MySql.Data.MySqlClient;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +30,7 @@ namespace StaffRegistration
                 MySqlCommand cmd = conn.connConnection().CreateCommand();
                 cmd = conn.connConnection().CreateCommand();
                 cmd = new MySqlCommand("SELECT * FROM `faculty`", conn.connConnection());
-               
+
 
                 conn.connOpen();
                 conn.connConnection();
@@ -33,17 +38,17 @@ namespace StaffRegistration
 
                 MySqlDataReader reader1;
 
-                
+
                 reader1 = cmd.ExecuteReader();
                 TreeNode node = new TreeNode("Faculty Name");
                 while (reader1.Read())
                 {
                     //if(count == 0)
 
-                    
+
                     node.Nodes.Add(reader1["Faculty Name"].ToString());
 
-                    
+
                 }
                 trVwFaculty.Nodes.Add(node);
                 trVwFaculty.CheckBoxes = true;
@@ -59,9 +64,9 @@ namespace StaffRegistration
                 conn.connConnection();
 
 
-                
 
-                
+
+
                 reader1 = cmd.ExecuteReader();
                 TreeNode node1 = new TreeNode("Department Name");
                 while (reader1.Read())
@@ -130,99 +135,507 @@ namespace StaffRegistration
         }
 
 
-        /*
-         
+        public void populateCheckListBox(ref CheckedListBox designations, ref CheckedListBox faculty, ref CheckedListBox department, ref CheckedListBox leave, ref CheckedListBox salarycode, ref CheckedListBox salaryscale)
+        {
+            try
+            {
 
-        Connection conn = new Connection();
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `faculty`", conn.connConnection());
 
-        public void loadReportTable( CheckedListBox chkLBxPersonal, CheckedListBox chkLBxFamily, CheckedListBox chkLBxEducational, CheckedListBox chkLBxService, CheckedListBox chkLBxOtherPositions, DataGridView tblReport,
-            CheckedListBox chkLBAddress,CheckedListBox chkLBFaculty, CheckedListBox chkLBSalary)
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+                MySqlDataReader reader1;
+
+
+                reader1 = cmd.ExecuteReader();
+
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    faculty.Items.Add(reader1["Faculty Name"].ToString());
+
+
+                }
+
+                reader1.Close();
+
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `department`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+
+
+
+                reader1 = cmd.ExecuteReader();
+
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    department.Items.Add(reader1["Department Name"].ToString());
+
+
+                }
+
+                reader1.Close();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `designations`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+
+
+
+                reader1 = cmd.ExecuteReader();
+               // TreeNode node2 = new TreeNode("Designation");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    designations.Items.Add(reader1["Designation"].ToString());
+
+
+                }
+
+
+
+
+                reader1.Close();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `leavetype`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+                leave.Items.Clear();
+
+
+                reader1 = cmd.ExecuteReader();
+                //TreeNode node2 = new TreeNode("Designation");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    leave.Items.Add(reader1["Leave Type"].ToString());
+
+
+                }
+
+
+
+
+                reader1.Close();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `salarycode`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+
+
+
+                reader1 = cmd.ExecuteReader();
+                //TreeNode node2 = new TreeNode("Designation");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    salarycode.Items.Add(reader1["Salary Code"].ToString());
+
+
+                }
+
+
+
+
+                reader1.Close();
+
+                cmd = conn.connConnection().CreateCommand();
+                cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand("SELECT * FROM `salaryscale`", conn.connConnection());
+
+
+                conn.connOpen();
+                conn.connConnection();
+
+
+
+
+
+                reader1 = cmd.ExecuteReader();
+                //TreeNode node2 = new TreeNode("Designation");
+                while (reader1.Read())
+                {
+                    //if(count == 0)
+
+
+                    salaryscale.Items.Add(reader1["Salary Scale"].ToString());
+
+
+                }
+
+
+
+
+                reader1.Close();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        
+        public void loadReportTable(CheckedListBox chkLBxPersonal, CheckedListBox chkLBxFamily, CheckedListBox chkLBxEducational, CheckedListBox chkLBxService, CheckedListBox chkLBxOtherPositions, DataGridView tblReport,
+            CheckedListBox chkLBAddress, CheckedListBox chkLBFaculty, CheckedListBox chkLBSalaryScale, CheckedListBox chkLBSalaryCode, CheckedListBox chkLBDesignation, CheckedListBox chkLBLeave, CheckedListBox chkLBDepartment, CheckedListBox chkLtBxLeaveCategory)
         {
             try
             {
                 string query = "SELECT DISTINCT ";
+                int wherecount = 0;
 
                 foreach (object itemChecked in chkLBxPersonal.CheckedItems)
                 {
-                    query += "[AcademicStaff].[" + itemChecked.ToString() +"]"+ ",";
+                    query += "`AcademicStaff`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
 
                 foreach (object itemChecked in chkLBxFamily.CheckedItems)
                 {
-                    query += "[ChildrenDetail].[" + itemChecked.ToString() + "]" + ",";
+                    query += "`ChildrenDetail`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
 
                 foreach (object itemChecked in chkLBxEducational.CheckedItems)
                 {
-                    query += "[EducationalQulifications].[" + itemChecked.ToString() + "]" + ",";
+                    query += "`educationalqulifications`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
 
                 foreach (object itemChecked in chkLBxService.CheckedItems)
                 {
-                    query += "[ServiceRecords].[" + itemChecked.ToString() + "]" + ",";
+                    query += "`servicerecords`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
 
                 foreach (object itemChecked in chkLBxOtherPositions.CheckedItems)
                 {
-                    query += "[OtherPositions].[" + itemChecked.ToString() + "]" + ",";
+                    query += "`OtherPositions`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
                 foreach (object itemChecked in chkLBAddress.CheckedItems)
                 {
-                    query += "[Address].[" + itemChecked.ToString() + "]" + ",";
+                    query += "`Address`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
-                foreach (object itemChecked in chkLBFaculty.CheckedItems)
+               
+               
+               
+                foreach (object itemChecked in chkLBLeave.CheckedItems)
                 {
-                    query += "[Department].[" + itemChecked.ToString() + "]" + ",";
+                    query += "`leave`.`" + itemChecked.ToString() + "`" + ",";
                     //MessageBox.Show(itemChecked.ToString());
                 }
-                foreach (object itemChecked in chkLBSalary.CheckedItems)
-                {
-                    query += "[SalaryScale].[" + itemChecked.ToString() + "]" + ",";
-                    //MessageBox.Show(itemChecked.ToString());
-                }
+                
+                
 
                 query = query.Substring(0, query.Length - 1);
-                query += " FROM AcademicStaff,ChildrenDetail,EducationalQulifications,ServiceRecords,OtherPositions,SalaryScale,Department,Address,SalaryStep ";
-               // if (chkLBxFamily.CheckedItems.Count>0)
-                    query += "WHERE [AcademicStaff].[ASID] = [ChildrenDetail].[ASID] ";
+                query += " FROM academicstaff  ";
+
+                if (chkLBxFamily.CheckedItems.Count>0)
+                    query += ",childrendetail ";
                 if (chkLBxOtherPositions.CheckedItems.Count > 0)
-                    query += "AND [AcademicStaff].[ASID] = [OtherPositions].[ASID] ";
+                    query += ",otherpositions ";
                 if (chkLBxEducational.CheckedItems.Count > 0)
-                    query += "AND [AcademicStaff].[ASID] = [EducationalQulifications].[ASID] ";
+                    query += ",educationalqulifications ";
                 if (chkLBxService.CheckedItems.Count > 0)
-                    query += "AND [AcademicStaff].[ASID] = [ServiceRecords].[ASID] ";
-                if (chkLBSalary.CheckedItems.Count > 0)
+                    query += ",servicerecords ";
+                if (chkLBSalaryCode.CheckedItems.Count > 0)
                 {
-                    query += "AND [AcademicStaff].[Salary Step] = [SalaryStep].[Salary Step] ";
-                    query += "AND [SalaryStep].[Salary Scale] = [SalaryScale].[Salary Scale] ";
+                    query += ",salarycode ";
+                    
                 }
+                if (chkLBSalaryScale.CheckedItems.Count > 0)
+                {
+                    query += ",salaryscale ";
+                }
+
+                
+
+                if (chkLBDesignation.CheckedItems.Count > 0)
+                {
+                    query += ",designations ";
+                }
+
+                if (chkLBDepartment.CheckedItems.Count > 0 || chkLBFaculty.CheckedItems.Count > 0)
+                {
+                    query += ",department ";
+                }
+
+                if (chkLtBxLeaveCategory.CheckedItems.Count > 0)
+                {
+                    query += ",leavetype ";
+                    
+                }
+
+
                 if (chkLBFaculty.CheckedItems.Count > 0)
                 {
-                    query += "AND [AcademicStaff].[Department Name] = [Department].[Department Name] ";
+                    query += ",faculty ";
+                    
                 }
+
                 if (chkLBAddress.CheckedItems.Count > 0)
-                    query += "AND [AcademicStaff].[ASID] = [Address].[ASID] ";
+                    query += ",address ";
+
+                if (chkLBLeave.CheckedItems.Count > 0 || chkLtBxLeaveCategory.CheckedItems.Count > 0)
+                {
+                    query += ",`leave` ";
+                }
 
 
+                if (chkLBxFamily.CheckedItems.Count > 0 || chkLBxOtherPositions.CheckedItems.Count > 0 || chkLBxEducational.CheckedItems.Count > 0 || chkLBxService.CheckedItems.Count > 0 ||
+                     chkLBLeave.CheckedItems.Count > 0 || chkLBAddress.CheckedItems.Count > 0 || chkLtBxLeaveCategory.CheckedItems.Count > 0 || chkLBFaculty.CheckedItems.Count > 0)
+                {
+                    query += "WHERE ";
+                    
+                }
 
 
+                if (chkLBxFamily.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`NIC` = `ChildrenDetail`.`NIC` ";
+                    
+                }
+                if (chkLBxOtherPositions.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`NIC` = `OtherPositions`.`NIC` ";
+                }
+                if (chkLBxEducational.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`NIC` = `EducationalQulifications`.`NIC` ";
+                }
+                if (chkLBxService.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`NIC` = `ServiceRecords`.`NIC` ";
+                }
+                if (chkLBSalaryCode.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`Salary Scale` = `salaryscale`.`Salary Scale` ";
+                    query += "AND `salaryscale`.`Salary Code` = `salarycode`.`Salary Code` ";
+                }
+                if (chkLBSalaryScale.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`Salary Scale` = `salaryscale`.`Salary Scale` ";
+                }
 
-               // MessageBox.Show(query);
+                if (chkLBLeave.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`academicstaff`.`NIC` = `leave`.`NIC` ";
+                }
+
+                if (chkLBDesignation.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`academicstaff`.`Designation` = `designations`.`Designation` ";
+                }
+
+                if (chkLBDepartment.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`academicstaff`.`Department Name` = `department`.`Department Name` ";
+                }
+
+                if (chkLtBxLeaveCategory.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`NIC` = `leave`.`NIC` ";
+                    //query += "AND `leave`.`Leave Type` = `leavetype`.`Leave Type` ";
+                }
+
+
+                if (chkLBFaculty.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`Department Name` = `Department`.`Department Name` ";
+                    //query += "AND `department`.`Faculty Name` = `faculty`.`Faculty Name` ";
+                }
+
+                if (chkLBAddress.CheckedItems.Count > 0)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`AcademicStaff`.`NIC` = `Address`.`NIC` ";
+                }
+
+
+                foreach (object itemChecked in chkLBDepartment.CheckedItems)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "WHERE `Department Name` = "+ itemChecked.ToString() +" ";
+                   // query += "`SalaryScale`.`" + itemChecked.ToString() + "`" + ",";
+                    //MessageBox.Show(itemChecked.ToString());
+                }
+                foreach (object itemChecked in chkLtBxLeaveCategory.CheckedItems)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`leave`.`Leave Category` = " + itemChecked.ToString() +" ";
+                    //query += "`leavetype`.`" + itemChecked.ToString() + "`" + ",";
+                    //MessageBox.Show(itemChecked.ToString());
+                }
+
+                foreach (object itemChecked in chkLBDesignation.CheckedItems)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "WHERE `Designation` = " + itemChecked.ToString() + " ";
+                   // query += "`designations`.`" + itemChecked.ToString() + "`" + ",";
+                    //MessageBox.Show(itemChecked.ToString());
+                }
+
+                foreach (object itemChecked in chkLBSalaryCode.CheckedItems)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "WHERE `Salary Code` = " + itemChecked.ToString() + " ";
+                    //query += "`salarycode`.`" + itemChecked.ToString() + "`" + ",";
+                    //MessageBox.Show(itemChecked.ToString());
+                }
+
+                foreach (object itemChecked in chkLBFaculty.CheckedItems)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "`department`.`Faculty Name` = " + itemChecked.ToString() + " ";
+                    //query += "`Department`.`" + itemChecked.ToString() + "`" + ",";
+                    //MessageBox.Show(itemChecked.ToString());
+                }
+                foreach (object itemChecked in chkLBSalaryScale.CheckedItems)
+                {
+                    if (wherecount != 0)
+                    {
+                        query += "AND ";
+                    }
+                    wherecount++;
+                    query += "WHERE `Salary Scale` = " + itemChecked.ToString() + " ";
+                    //query += "`salaryscale`.`" + itemChecked.ToString() + "`" + ",";
+                    //MessageBox.Show(itemChecked.ToString());
+                }
+
+                //MessageBox.Show(query);
+                //Console.WriteLine(query);
 
                 conn.connOpen();
                 conn.connConnection();
 
-                SqlCommand cmd = conn.connConnection().CreateCommand();
-                cmd = new SqlCommand(query, conn.connConnection());
+                MySqlCommand cmd = conn.connConnection().CreateCommand();
+                cmd = new MySqlCommand(query, conn.connConnection());
                 //cmd.Parameters.AddWithValue("@1", txtSearchName);
 
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
 
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
@@ -240,12 +653,26 @@ namespace StaffRegistration
         }
 
 
+            
 
 
-           
+        /* private void PopulateRows()
+         {
+             for (int i = 1; i <= 10; i++)
+             {
+                 DataGridViewRow row =
+                     (DataGridViewRow)dgvCityDetails.RowTemplate.Clone();
 
+                 row.CreateCells(dgvCityDetails, string.Format("City{0}", i),
+                     string.Format("State{0}", i), string.Format("Country{0}", i));
 
+                 dgvCityDetails.Rows.Add(row);
 
+             }
+         }
+         */
+
+            
         /// <summary> 
         /// Exports the datagridview values to Excel. 
         /// </summary> 
@@ -355,11 +782,12 @@ namespace StaffRegistration
 
 
 
+        
 
 
 
 
-
+            
 
 
         public void dataGridPdf(DataGridView tblReport, String txtHeader, String txtDate)
@@ -409,6 +837,7 @@ namespace StaffRegistration
                 MessageBox.Show("Pdf file is alreday open. Please close that for generate a new report");
             }
         }
+        
         /*
         public void BindReport(CheckedListBox x, CrystalReportViewer crystalReportViewer1, CrystalReport5 CrystalReport5)
         {

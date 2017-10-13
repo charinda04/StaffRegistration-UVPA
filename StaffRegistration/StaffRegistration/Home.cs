@@ -15,6 +15,7 @@ namespace StaffRegistration
         SearchStaff staff = new SearchStaff();
         AddStaff add = new AddStaff();
         DeleteStaff dstaff = new DeleteStaff();
+        Alerts a1 = new Alerts();
 
         Connection cc = new Connection();
         private bool updateStatus = false;
@@ -26,7 +27,17 @@ namespace StaffRegistration
 
         }
 
+        public void reoad()
+        {
+            StaffRegistration s = new StaffRegistration();
+            s.StartPosition = FormStartPosition.WindowsDefaultBounds;
+            //s.Left = 250;
+            //s.Top = 130;
 
+            s.MdiParent = this.MdiParent;
+            s.Show();
+            this.Close();
+        }
 
         private void addStaffMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,7 +66,7 @@ namespace StaffRegistration
 
         private void tStpBtnAdd_Click(object sender, EventArgs e)
         {
-            Add addStaff = new Add(updateStatus,"",this);
+            Add addStaff = new Add(updateStatus,"",this,tblSearch,tblAlerts,lblIndicator);
             addStaff.ShowDialog();
         }
 
@@ -63,6 +74,9 @@ namespace StaffRegistration
         {
             staff.fillSearchTable(tblSearch);
             add.facultyComboBox(cmbBxSearchFaculty);
+            a1.tblAlertsIncrement(tblAlerts);
+            a1.checkNoofAlerts(lblIndicator,tblAlerts);
+            
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +110,8 @@ namespace StaffRegistration
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
             staff.fillSearchTable(tblSearch);
+            a1.tblAlertsIncrement(tblAlerts);
+            a1.checkNoofAlerts(lblIndicator, tblAlerts);
         }
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
@@ -135,18 +151,8 @@ namespace StaffRegistration
             {
                 updateStatus = true;
                 String ID = tblSearch[0, tblSearch.CurrentRow.Index].Value.ToString();
-                Add addStaff = new Add(updateStatus,ID,this);
+                Add addStaff = new Add(updateStatus,ID,this, tblSearch,tblAlerts, lblIndicator);
                 addStaff.ShowDialog();
-
-                
-
-                
-                /*ASID = ID;
-                personal_detail1.Visible = true;
-                personal_detail1.BringToFront();
-
-                
-                */
             }
         }
 
@@ -157,6 +163,40 @@ namespace StaffRegistration
             if (answer == DialogResult.Yes)
                 dstaff.deleteAcademicStaff(tblSearch[0, tblSearch.CurrentRow.Index].Value.ToString());
             staff.fillSearchTable(tblSearch);
+        }
+
+        private void btnAlertView_Click(object sender, EventArgs e)
+        {
+            if (tblAlerts.SelectedRows.Count == 1)
+            {
+                updateStatus = true;
+                String ID = tblAlerts[0, tblAlerts.CurrentRow.Index].Value.ToString();
+                Add addStaff = new Add(updateStatus, ID, this, tblSearch, tblAlerts, lblIndicator);
+                addStaff.ShowDialog();
+            }
+        }
+
+        private void generateReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tStpBtnReport.PerformClick();
+        }
+
+        private void editOptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tStpBtnOptions.PerformClick();
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login l1 = new Login();
+            this.Dispose();
+            l1.ShowDialog();
+            
         }
     }
 }

@@ -24,6 +24,7 @@ namespace StaffRegistration
             {
                 panelAddDesignation.Visible = false;
                 panelChangeSalaryCode.Visible = false;
+                Leave.Visible = false;
                 panelAddFaculty.Visible = true;
                 panelAddFaculty.BringToFront();
             }
@@ -31,6 +32,7 @@ namespace StaffRegistration
             {
                 panelChangeSalaryCode.Visible = false;
                 panelAddFaculty.Visible = false;
+                Leave.Visible = false;
                 panelAddDesignation.Visible = true;
                 panelAddDesignation.BringToFront();
             }
@@ -38,6 +40,14 @@ namespace StaffRegistration
             {
                 panelChangeSalaryCode.Visible = true;
                 panelChangeSalaryCode.BringToFront();
+            }
+            else if (cmbBxEditField.SelectedIndex == 3)
+            {
+                panelAddDesignation.Visible = false;
+                panelChangeSalaryCode.Visible = false;
+                panelAddFaculty.Visible = false;
+                Leave.Visible = true;
+                Leave.BringToFront();
             }
         }
 
@@ -113,6 +123,7 @@ namespace StaffRegistration
                 opt.loadDepartment(tblDepartment, tblFaculty[0, tblFaculty.CurrentRow.Index].Value.ToString());
 
             opt.loadDesignation(tblDesignation);
+            opt.loadLeave(tblLeave);
         }
 
         private void bttnNewDesignation_Click(object sender, EventArgs e)
@@ -193,6 +204,29 @@ namespace StaffRegistration
             }
             opt.loadSalaryScale(tblOldScale, tblOldCode[0, tblOldCode.CurrentRow.Index].Value.ToString());
             
+        }
+
+        private void btnAddLeave_Click(object sender, EventArgs e)
+        {
+            if (txtLeave.Text == "")
+                MessageBox.Show("Leave category cannot be empty");
+            else
+            {
+                opt.insertLeave(txtLeave.Text);
+                txtLeave.Text = "";
+                opt.loadLeave(tblLeave);
+            }
+        }
+
+        private void btnRemoveLeave_Click(object sender, EventArgs e)
+        {
+            DialogResult answer;
+            answer = MessageBox.Show("Do you want delete this Leave Category?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (answer == DialogResult.Yes)
+            {
+                opt.deleteLeave(tblLeave[0, tblLeave.CurrentRow.Index].Value.ToString());
+            }
+            opt.loadLeave(tblLeave);
         }
     }
 }
